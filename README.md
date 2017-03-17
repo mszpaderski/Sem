@@ -1,0 +1,2 @@
+# Sem
+Seminarium: Praca Licencjacka
