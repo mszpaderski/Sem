@@ -7,7 +7,8 @@ Zeigarnik, aplikacja, GameMaker, pamięć,
 
 ## Streszczenie
 
-Aplikacja posiadać będzie serię prostych testów które podane zostają dla użytkownika aby je rozwiązał w określonym czasie. W celu badania Efektu Zeigarnik, czas dany na rozwiązanie zadań jest różny. Z założenia przed rozpoczęciem testu, aplikacja losuje połowę zadań i skraca ich czas tak aby nie dało się ich wykonać, lecz będzie dawać wystarczająco czasu aby zapoznać się z zadaniem. Potem przeprowadza się ankietę która pozwala ustalić jakie testy które były wykonane użytkownik jest w stanie sobie przypomnieć.
+W pracy przedstawiono aplikację która ma na celu wspieranie badań nad Efektem Zeigarnik.
+Aplikacja posiadać będzie serię prostych testów które podane zostają dla użytkownika aby je rozwiązał w określonym czasie. W celu badania Efektu Zeigarnik, czas dany na rozwiązanie zadań jest różny. Z założenia przed rozpoczęciem testu, aplikacja losuje połowę zadań i skraca ich czas tak aby nie dało się ich wykonać, lecz będzie dawać wystarczająco czasu aby zapoznać się z zadaniem. Potem przeprowadza się ankietę która pozwala ustalić jakie testy, które były wykonane, użytkownik jest w stanie sobie przypomnieć.
 
 ## Wstęp
 
@@ -30,4 +31,6 @@ Projekt będzie wykonany na zasadzie aplikacji działającej w trybie klient-ser
 
 ## Bibliografia i linki
 
-[1] Bulma Zeigarnik, "On Finished and Unfinished Tasks": http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf
+1. [Bulma Zeigarnik, "On Finished and Unfinished Tasks"](http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf)
+
+**TODO: Rozwinąć bibliografię o dokumentacje **
