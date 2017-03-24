@@ -23,8 +23,8 @@ Projekt będzie wykonany na zasadzie aplikacji działającej w trybie klient-ser
 1.  Wstęp
 2.  Założenia aplikacji
 3.  Projekt aplikacji i analiza potrzeb
-   1. Projekt interfejsu użytkownika
-   2. Wymagania funkcjonalne
+    1. Projekt interfejsu użytkownika
+       2. Wymagania funkcjonalne
    3. Wymagania niefunkcjonalne
    4. Organiacja danych
 4.  Opis wybranych technologii i rozwiązań
