@@ -8,7 +8,7 @@ Zeigarnik, aplikacja, GameMaker, pamięć,
 ## Streszczenie
 
 W pracy przedstawiono aplikację która ma na celu wspieranie badań nad Efektem Zeigarnik.
-Aplikacja posiadać będzie serię prostych testów które podane zostają dla użytkownika aby je rozwiązał w określonym czasie. W celu badania Efektu Zeigarnik, czas dany na rozwiązanie zadań jest różny. Z założenia przed rozpoczęciem testu, aplikacja losuje połowę zadań i skraca ich czas tak aby nie dało się ich wykonać, lecz będzie dawać wystarczająco czasu aby zapoznać się z zadaniem. Potem przeprowadza się ankietę która pozwala ustalić jakie testy, które były wykonane, użytkownik jest w stanie sobie przypomnieć.
+Aplikacja posiada serię prostych testów które podane zostają dla użytkownika aby je rozwiązał w określonym czasie. W celu badania Efektu Zeigarnik, czas dany na rozwiązanie zadań jest różny. Z założenia przed rozpoczęciem testu, aplikacja losuje połowę zadań i skraca ich czas tak aby nie dało się ich wykonać, lecz będzie dawać wystarczająco czasu aby zapoznać się z zadaniem. Potem przeprowadza się ankietę która pozwala ustalić jakie testy, które były wykonane, użytkownik jest w stanie sobie przypomnieć.
 
 ## Wstęp
 
@@ -21,13 +21,20 @@ Projekt będzie wykonany na zasadzie aplikacji działającej w trybie klient-ser
 ## Spis treści
 
 1.  Wstęp
-2.  Efekt Zeigarnik
+2.  Założenia aplikacji
 3.  Projekt aplikacji i analiza potrzeb
+  3.1 Projekt interfejsu użytkownika
+  3.2 Wymagania funkcjonalne
+  3.3 Wymagania niefunkcjonalne
+  3.4 Organiacja danych
 4.  Opis wybranych technologii i rozwiązań
 5.  Szczegóły implementacji
+  5.1 Serwer danych
+  5.2 Obsługa klienta
 6.  Podsumowanie
+7.  Bibliografia
+8.  Spis tabel
 
-** TODO: rozwinac punkty **
 
 ## Bibliografia i linki
 
