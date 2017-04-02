@@ -6,16 +6,22 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite0</sprite>
     <sprite>sprites\sp_button</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_theme</background>
   </backgrounds>
   <paths name="paths"/>
-  <scripts name="scripts"/>
+  <scripts name="scripts">
+    <script>scripts\scr_draw_text_shadow.gml</script>
+    <scripts name="Init">
+      <script>scripts\scr_draw_test_space.gml</script>
+      <script>scripts\scr_room_chosed.gml</script>
+    </scripts>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\font_Verdana</font>
+    <font>fonts\font_Verdana_big</font>
   </fonts>
   <objects name="objects">
     <objects name="Menu">
@@ -29,6 +35,13 @@
       <object>objects\obj_menu_matcher</object>
       <object>objects\obj_menu_math</object>
       <object>objects\obj_menu_initial</object>
+    </objects>
+    <object>objects\obj_matches</object>
+    <objects name="misc">
+      <object>objects\obj_timer</object>
+      <object>objects\obj_room_title</object>
+      <object>objects\obj_test_space</object>
+      <object>objects\obj_init</object>
     </objects>
   </objects>
   <rooms name="rooms">
