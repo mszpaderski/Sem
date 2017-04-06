@@ -59,26 +59,26 @@ w niniejszej pracy, przedstawione będą zalety jej wykorzystania oraz szczegó�
 
 Wprowadzenie 
 1.  Założenia aplikacji
-   1. Zadania
-      1. Anagram
-      2. Narysuj
-      3. Zapałki
-      4. Matematyka
-      5. Ile to jest?
-      6. Znajdź słowo
-      7. Zakręć
-      8. Labirynt
-      9. Puzzle
+    1. Zadania
+        1. Anagram
+        2. Narysuj
+        3. Zapałki
+        4. Matematyka
+        5. Ile to jest?
+        6. Znajdź słowo
+        7. Zakręć
+        8. Labirynt
+        9. Puzzle
 2.  Projekt aplikacji i analiza potrzeb
-   1. Projekt interfejsu użytkownika
-   2. Wymagania funkcjonalne
-   3. Wymagania niefunkcjonalne
-   4. Organiacja danych
+    1. Projekt interfejsu użytkownika
+    2. Wymagania funkcjonalne
+    3. Wymagania niefunkcjonalne
+    4. Organiacja danych
 3.  Opis wybranych technologii i rozwiązań 
-   1. GameMaker Studio 
+    1. GameMaker Studio 
 4.  Szczegóły implementacji 
-   1. Serwer danych
-   2. Obsługa klienta
+    1. Serwer danych
+    2. Obsługa klienta
 5.  Zakończenie
 7.  Bibliografia
 8.  Spis tabel
