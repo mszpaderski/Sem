@@ -71,350 +71,105 @@ W części teoretycznej zostaną opisane główne założenia przyjęte podczas 
 Projekt będzie wykonany na zasadzie aplikacji działającej w trybie klient-serwer. Aplikacja zostanie zaprojektowana i wykonana w środowisku The GameMaker: Studio, które wykorzystuje unikalny dla siebie język GML, składnią zbliżony do C++ lub Pascal. Wybrałem takie środowisko ze względu na chęć rozszerzenia swojej wiedzy w zakresie implementacji programów i gier w środowiskach do tego przystosowanych. Wymieniona technologia zostanie opisana w niniejszej pracy, przedstawione będą zalety jej wykorzystania oraz szczegóły implementacji.
 
 
-\chapter{Wprowadzenie do standardów SGML}
 
-SGML~\cite{Goldfarb:2002:CFG} jest to \emph{metajęzyk} służący do opisywania
-struktury i~zawartości dokumentów (standard ISO 8879).  Do
-podstawowych zalet takiego podejścia należy:
-\begin{itemize}
-\item
-jest to międzynarodowy
-standard dostępny na wielu platformach sprzętowo\-systemowych;
-\item
-jest to
-język opisu \emph{każdego\/} dokumentu, o~praktycznie nieograniczonych
-możliwościach (\emph{rozszerzalność\/})
-\item
-umożliwia powtórne
-wykorzystywanie dokumentów, także w sposób inny od poprzedniego
-(np. tradycyjna książka i~dokument multimedialny utworzony z~tego
-samego dokumentu SGML-owego).
-\end{itemize}
 
-Standard służy jedynie do opisywania logicznej struktury dokumentów,
-nie determinuje ostatecznej formy prezentacji informacji, która może
-być docelowo przekształcana w~najróżniejszy sposób. Dokument
-zakodowany z~wykorzystaniem SGML-a może służyć jako postać wyjściowa
-do formatowania tej samej informacji w~różny sposób i~prezentacji
-z~użyciem różnych mediów np. w~formie drukowanej na papierze,
-w~postaci hipertekstu albo tekstowej bazy danych. Pozwala to
-zminimalizować koszty\index{koszty}, cały cykl wydawniczy dokonuje się
-na jednym dokumencie -- pliku SGML-owym, a~nie na wielu.
+\chapter{Założenia aplikacji}
+Głównym celem aplikacji jest stworzenie bazy informacji w celu przeprowadzenia badań nad Efektem Zeigarnik. Test jest jednorazowy, od użytkownika wymaga się, aby podszedł do niego jednorazowo oraz bez wiedzy, co tak naprawdę wykonuje.
 
-\section{Elementy składowe systemu SGML}
+Założeniem badania jest sprawdzenie, czy uczestnik po wykonaniu wszystkich zadań będzie w stanie łatwiej przypomnieć sobie te, które wykonał do końca, czy te, które zostały mu przerwane przed końcem.
 
-Standard SGML to specyfikacja techniczna metajęzyka. Zaś systemem
-SGML nazywamy \emph{zestaw narzędzi i~środków niezbędnych do
-tworzenia, składowania i~obróbki dokumentów z~wykorzystaniem tego
-standardu}.  Typowy proces produkcji dokumentów w~standardzie SGML
-podzielony jest na kilka części. Najważniejszymi elementami tego
-procesu są~\cite[s.~45--47]{Eisenberg:2002:SXM}:
+Po wykonaniu wszystkich testów użytkownik dostanie do wypełnienia ankieta, która pozwoli ustalić, co zapamiętał badany. Wyniki poszczególnych zadań, jak i treść ankiety wysłane zostaną na serwer.
 
-\begin{itemize}
-\item Klasyfikacja tworzonych dokumentów w~grupy i~wynikający z~tego
-  dobór definicji typu dokumentu\footnote{Definicja typu dokumentu DTD
-    to formalny opis pewnej klasy dokumentów, spis jej elementów
-    składowych (znaczników i~ich atrybutów) oraz zasad ich stosowania
-    (hierarchii występowania czy możliwości skracania).}
-  (por.~punkt~\ref{s:dtd}).
-\item Wybraniu odpowiednich narzędzi do tworzenia i~modyfikowania
-  dokumentów SGML (edytory, konwertery, por.~punkt~\ref{s:edytor},
-  s.~\pageref{s:edytor})\footnote{Wybrany edytor winien w~maksymalnym
-    stopniu ułatwiać proces tworzenie dokumentów strukturalnych,
-    różniący się od tego, jaki jest stosowany w~narzędziach biurowych
-    typu edytor Word.}.
-\item Sprawdzenie poprawności oznaczenia dokumentów
-  (walidacja\index{walidacja}).
-\item Ustalenie metod składowania zbiorów oznakowanych dokumentów.
-\item Ustalenie sposobu prezentacji oznaczonych dokumentów i~ich
-  formatów wyjściowych -- przygotowanie odpowiednich specyfikacji
-  konwersji formatów i~dobór właściwych do tego celu narzędzi
-  (por.~punkty~\ref{s:dsssl} i~\ref{s:xsl}).
-\end{itemize}
+\section{Zadania}
+Na pierwszą wersję aplikacji zaplanowane jest dziewięć różnych zadań. W momencie rozpoczęcia testu wylosowana zostanie połowa testów zaokrąglona w dół, a czas dany do ich rozwiązania zostanie skrócony tak, by użytkownik zdążył zaznajomić się z treścią zadania lub nawet zdążył zacząć je wykonywać, lecz aby na pewno nie zdążył go wykonać do końca.
 
-Każdy z~wyżej wymienionych problemów stanowi pewne zadanie do
-wykonania, które może być w dużym stopniu lub całkowicie
-zautomatyzowane dzięki zastosowaniu odpowiednich narzędzi, co jest
-jednym z~celów i~korzyści stosowania systemu opartego na standardzie
-SGML.
+Aplikacja jest przygotowana w taki sposób, że umożliwia stosunkowo łatwe dodawanie nowych testów, a co za tym idzie, jest gotowa do rozbudowy i dalszego rozwoju. W przyszłości można do niej dodać nowe testy, by zwiększyć ich różnorodność lub poszerzyć zakres badań o różne warunki ich wykonywania.
+ 
+\subsection{Anagram}
+W tym zadaniu użytkownik dostanie zbiór losowo poukładanych liter z których będzie musiał ułożyć prawidłowe słowo.
 
-\begin{figure}[!tbh]
-\centering
-\includegraphics[width=.8\hsize]{fig/schemat}
-\caption{Schemat archiwum\label{RYS.2}}
-\source{Opracowanie własne}
-\end{figure}
+[Screenshot zadania][Do wstawienia]
 
-\section{Opracowanie typu dokumentu\label{s:dtd}}
-Tworzenie DTD~\cite{Eisenberg:2002:SXM,Goldfarb:2002:CFG} powinno zacząć się
-od analizy posiadanych danych oraz potrzeb dotyczących dokumentów
-wynikowych i~informacji. Rezultatem analizy dokumentów jest
-wyspecyfikowanie słownika takich elementów oraz, dla każdego typu
-dokumentu, zależności między tymi elementami. Z~tego powodu stworzenie
-dobrego DTD jest zadaniem niełatwym. Ponadto DTD jest tylko częścią
-systemu SGML; oprócz niego potrzebne są narzędzia do formatowania
-dokumentów, takie jak arkusze stylów DSSSL czy też XSL/XSLT.
+Każdą z podanych liter można wykorzystać tylko i wyłącznie raz. Można natomiast cofnąć wybór liter i ustawić je w innej kolejności.
 
-Duże koszty implementacji przemawiają często za rozważeniem
-wykorzystania, czy też adaptacji w~systemie SGML udostępnionych
-publicznie gotowych DTD. W~omawianym projekcie postąpiono podobnie,
-ewentualne opracowanie własnego typu dokumentu odkładając na później.
-Rozważano wstępnie wykorzystanie trzech publicznie dostępnych typów
-dokumentów: \texttt{etd} zdefiniowanego na potrzeby projektu
-\textit{Electronic Theses and Dissertations} w~Virginia Polytechnic
-Institute and State University, \texttt{TEI} opracowanego w~ramach
-projektu \textit{Text Encoding Iniciative} oraz
-DocBook opracowany przez konsorcjum firm, głównie sektora IT,
-używających technologii SGML do tworzenia dokumentacji do swoich
-produktów.
+\subsection{Narysuj}
+Zadaniem użytkownika jest narysowanie wazonu z kwiatami. Rysuje poprzez ruch palcem.
 
-\section{DocBook}
-\emph{DocBook DTD}\index{DocBook|(} to typ dokumentu definiujący
-strukturę i~zawartość zbioru znaczników SGML, służących do
-dokumentacji oprogramowania i~różnego rodzaju dokumentacje
-techniczne~\cite[s.~123]{Elmasri:2002:CMC}. Posiada ona bardzo rozbudowaną
-hierarchię znaczników do budowy struktur książek, dokumentacji
-technicznej itp dokumentów.  DTD dla tego typu dokumentu jest dostępne
-zarówno w~standardzie SGML jak i~XML. Dostępna jest także uproszczona
-wersja DTD o~nazwie SimpleDocbook. Zaletą używania wersji uproszczonej
-jest dużo łatwiejsze posługiwanie się nią, z~uwagi na znacznie
-mniejszą liczbę znaczników, por.~tabela~\ref{tab:dtd-cmp}.
+[Screenshot zadania][Do wstawienia]
 
-\begin{table}[!tbh]
-\begin{tabular}{|l|l|l|} \hline
-Typ dokumentu & Liczba elementów & Liczba encji \\ \hline
-Docbook & 357 & 1814 \\ \hline
-SimpleDocBook  & 93  & 234 \\ \hline
-TEI & brak danych & 3 \\ \hline
-HTML & 98  & 234 \\ \hline
-\end{tabular}
-\caption{Porównanie wielkości popularnych definicji
-  typu dokumentu\label{tab:dtd-cmp}}
-\source{Obliczenia własne}
-\end{table}
+Nie ma możliwości edycji tego, co zostało już narysowane. Usunięcie wyrysowanego kształtu jest niemożliwe.
 
-DocBook jest używany obecnie w~większości zarówno komercyjnych jak
-i~niekomercyjnych projektach tworzenia dokumentacji komputerowej
-(np. dokumentacja dla takich projektów jak: LDP -- \textit{Linux
-Documentation Project}, \textit{RedHat Gnome Desktop},
-\textit{Postgres SQL RDBMS}, \textit{PHP3 Hypertext Preprocesor} czy
-dokumentacja do systemu FreeBSD).\index{DocBook|)}
+\subsection{Zapałki}
+Przedstawiona zostaje zagadka z zapałkami, a użytkownik ma za zadanie przesunąć jedną zapałkę tak, aby równanie było prawidłowe.
 
-\section{Edytory sterowane składnią\label{s:edytor}}
+[Screenshot zadania][Do wstawienia]
 
-Pierwszym elementem systemu SGML jest edytor
-strukturalny\index{edytor!strukturalny}, zwany też edytorem sterowanym
-składnią. W~tradycyjnych edytorach działających według paradygmatu
-WYSIWYG\index{WYSIWYG} autor wprowadzając tekst określa na bieżąco
-jego wygląd, mając zarówno w~jednym jak i~drugim przypadku dużą
-swobodę.  Taki sposób pracy w~przypadku masowego tworzenia dokumentów
-jest zupełnie nieefektywny. W~szczególności dotyczy to pracy wielu
-autorów nad jednym lub wieloma dokumentami o~zuniformizowanym
-formacie, czy też tworzenia dokumentów, o~których z~góry wiadomo, że
-będą prezentowane w~różny sposób.
+Zapałek nie można odwracać. Można przesunąć jedynie jedną zapałkę. Po przesunięciu można zaakceptować odpowiedź albo wrócić wszystko na miejsce i wybrać inną zapałkę do przesunięcia.
 
-Pewnym rozwiązaniem opisywanych wyżej problemów jest wykorzystanie
-szablonów, w~które, od jakiegoś czasu są wyposażane wszystkie
-popularne edytory biurowe\index{edytor!biurowy}.  Posługując się
-szablonami, autor nie definiuje wyglądu samodzielnie tylko wypełnia
-treścią zdefiniowany z~góry szablon dokumentu.
-Stanowiąc niewątpliwy
-krok do przodu takie podejście nie rozwiązuje jednak wszystkich
-problemów.
+\subsection{Matematyka}
+Użytkownik dostaje do obliczenia stosunkowo łatwe równanie matematyczne. Należy podać prawidłowy wynik i go zaakceptować.
 
-Komercyjne edytory SGML, są w~chwili obecnej ciągle bardzo
-drogie, zaś oprogramowanie rozprowadzane na różnego rodzaju licencjach
-\emph{Open Source\/} nie oferuje jeszcze wygody pracy, do której
-przyzwyczaili się użytkownicy edytorów biurowych.
+[Screenshot zadania][Do wstawienia]
 
-\section{Emacs i~psgml}
 
-Jedynym dostępnym w~chwili
-obecnej, efektywnym, tanim (darmowy) i~dostępnym na wielu
-platformach systemowo-sprzętowych środowisku do tworzenia dokumentów
-strukturalnych jakim jest edytor Emacs\index{edytor!Emacs} z~pakietem
-psgml. Środowisko to wspomaga autora poprzez:
-kolorowanie składni dokumentów SGML i~aplikacji SGML, automatyczne
-uzupełnianie brakujących znaczników, automatyczną kontrolę jakie
-w~danym kontekście można wstawiać znaczniki i~atrybuty, wyświetlanie
-informacje odnośnie możliwych i~domyślnych wartości.
-Wszystkie funkcje są dostępne za pomocą
-odpowiednie skrótów klawiszowych a~także dostępne poprzez wybór
-wskaźnikiem myszy odpowiedniej pozycji z~menu. Pakiet ten umożliwia
-również wywołanie zewnętrznego parsera\index{parser} SGML celem
-weryfikacji poprawności dokumentu.
+\subsection{Ile to jest?}
+Jest to nic innego jak równanie ze zmiennymi. Za pomocą trzech prostych równań użytkownik musi wyznaczyć równowartość niewiadomych.
 
-\chapter{Narzędzia i~standardy pokrewne}
+[Screenshot zadania][Do wstawienia]
 
-Systemy SGML, ze względu na mnogość funkcji jakie spełniają i~ich
-kompleksowe podejście do oznakowywania i~przetwarzania dokumentów
-tekstowych, są bardzo skomplikowane. Możemy wyróżnić dwa podejścia do
-budowy takich systemów.  Z~jednej strony, buduje się systemy
-zindywidualizowane, oparte o~specyficzne narzędzia tworzone w~takich
-językach, jak: C, C++, Perl czy Python. Edytory strukturalne, filtry
-do transformacji formatów czy parsery\index{parser} i~biblioteki
-przydatne do konstrukcji dalszych narzędzi, tworzone są według potrzeb
-określonych, pojedynczych systemów.
+Po ustaleniu wyników użytkownik musi zaakceptować swoją ostateczną odpowiedź.
 
-Z~drugiej strony, twórcy oprogramowania postanowili pójść krok dalej
-i~połączyć te różne narzędzia w~jedną całość. Tą całość miał stanowić
-DSSSL lub jego XML-owy odpowiednik -- standard XSL. Ze względu na
-oferowane możliwości można twierdzić, że tworzenie i~używanie narzędzi
-implementujących standard DSSSL/XSL, jest najwłaściwszym
-podejściem. Przemawiają za tym różne argumenty, ale najważniejszym
-z~nich jest to, że mamy tu możliwość stworzenia niezależnego od
-platformy programowej i~narzędziowej zbioru szablonów -- przepisów jak
-przetwarzać dokumenty SGML.
+\subsection{Znajdź słowo}
+Wśród wielu różnych liter użytkownik musi znaleźć konkretny wyraz i go zakreślić. 
 
-\section{Przetwarzanie dokumentów SGML -- standard DSSSL\label{s:dsssl}}
+[Screenshot zadania][Do wstawienia]
 
-DSSSL (\textit{Document Style Semantics and Specification Language\/})
--- to międzynarodowy standard ściśle związany ze standardem SGML.
-Standard ten, można podzielić na następujące części:
+Dopóki nie zaakceptuje się odpowiedzi można dowolną ilość razy anulować zakreślenie i wybrać coś innego.
 
-\begin{itemize}
-\item język transformacji (\textit{transformation language\/}).  To
-  definicja języka służącego do transformacji dokumentu oznaczonego
-  znacznikami zgodnie z~pewnym DTD na dokument oznaczony zgodnie
-  z~innym~DTD.
-\item język stylu (\textit{style language\/}) opisujący sposób
-  formatowania dokumentów SGML.
-\item język zapytań (\textit{query language\/}) służy do
-  identyfikowania poszczególnych fragmentów dokumentu SGML.
-\end{itemize}
+\subsection{Zakręć}
+W tym zadaniu użytkownik ma przed sobą serię połączonych ze sobą zębatek, a jego celem jest określenie, czy ostatnia zębatka zakręci się w lewą czy w prawą stronę. Od początku znamy tylko kierunek obracania się pierwszej zębatki.
 
-Opisane główne części składowe standardu DSSSL dają obraz tego, jak
-wiele aspektów przetwarzania zostało zdefiniowanych i~jak
-skomplikowany jest to problem. Jest to głównym powodem tego, że mimo
-upływu kilku lat od zdefiniowania standardu nie powstały ani
-komercyjne ani wolnodostępne aplikacje wspierające go
-w~całości. Istnieją natomiast \emph{nieliczne\/} narzędzia realizujące
-DSSSL w~ograniczonym zakresie, głównie w~części definiującej język
-stylu, który odpowiada za opatrzenie dokumentu czysto strukturalnego
-w~informacje formatujące. Daje to możliwość publikacji dokumentów SGML
-zarówno w~postaci elektronicznej, hipertekstowej czy też drukowanej.
+[Screenshot zadania][Do wstawienia]
 
-\section{Przetwarzanie dokumentów XML -- standard XSL\label{s:xsl}}
+Odpowiedź jest jednoznaczna, więc po jej zaakceptowaniu nie ma możliwości zmiany zdania.
 
-Tak jak XML jest \emph{uproszczoną\/} wersją standardu SGML, tak XSL
-jest uproszczonym odpowiednikiem standardu DSSSL. W~szczególności,
-wyróżnić można w~tym standardzie następujące części składowe:
+\subsection{Labirynt}
+Użytkownik ma za zadanie przejść przez labirynt. Utrudnieniem jest to, że gdy zacznie ruch w jakimkolwiek kierunku będzie się w nim poruszać dopóki nie natrafi na ścianę.
 
-\begin{itemize}
-\item język transformacji (XSLT) To definicja języka służącego do
-  transformacji dokumentu.
-\item język zapytań (XPath) służy do identyfikowania poszczególnych
-  fragmentów dokumentu.
-\item język stylu deefiniujący sposób formatowania dokumentów XML.
-\end{itemize}
+[Screenshot zadania][Do wstawienia]
 
-\chapter{Przegląd dostępnych narzędzi\label{PRZEGLAD.NARZEDZI}}
+Labirynt można zresetować do początkowego ustawienia w każdym momencie, jeśli gracz uzna że utknął.
 
-W~celu wykorzystania standardu SGML do przetwarzania dokumentów,
-niezbędne jest zebranie odpowiedniego zestawu narzędzi. Narzędzi do
-przetwarzania dokumentów SGML jest wiele. Są to zarówno całe
-systemy zintegrowane, jak i~poszczególne programy, biblioteki czy
-skrypty wspomagające.
+\subsection{Puzzle}
+Użytkownikowi zostaje dany do ułożenia obrazek bez jednego fragmentu. Jedynym sposobem na ułożenie go jest przesuwanie przyległych części na puste miejsce tak, by ułożyć z powrotem pełen obraz.
 
-\section{Narzędzia do przeglądania dokumentów SGML}
+[Screenshot zadania][Do wstawienia]
 
-Do tej kategorii oprogramowania zaliczamy przeglądarki dokumentów
-SGML oraz serwery sieciowe wspomagające standard SGML, przy
-czym rozwiązań wspierających standard XML jest już w~chwili obecnej
-dużo więcej i~są dużo powszechniejsze.
 
-Jeżeli chodzi o~przeglądarki to zarówno Internet Explorer jak
-i~Netscape umożliwiają bezpośrednie wyświetlenie dokumentów XML;
-ponieważ jednak nie wspierają w~całości standardu XML, prowadzi to
-ciągle do wielu problemów\footnote{Z~innych mniej popularnych
-  rozwiązań można wymienić takie aplikacje, jak: HyBrick SGML
-  Browser firmy Fujitsu Limited, Panorama Publisher firmy InterLeaf
-  Inc, DynaText firmy Inso Corporation czy darmowy QWeb. W~przypadku
-  serwerów zwykle dokonują one transformacji ,,w~locie'' żądanych
-  dokumentów na format HTML (rzadziej bezpośrednio wyświetlają
-  dokumenty XML).  Ta kategoria oprogramowania ma, z~punktu widzenia
-  projektu, znaczenie drugorzędne.}.
 
-\section{Parsery SGML}
-Program \texttt{nsgmls} (z~pakietu \texttt{SP} Jamesa Clarka) jest
-doskonałym parserem\index{parser} dokumentów SGML, dostępnym
-publicznie.  Parser \texttt{nsgmls} jest dostępny w~postaci źródłowej
-oraz w~postaci programów wykonywalnych przygotowanych na platformę
-MS~Windows, Linux/Unix i~inne. Oprócz analizy poprawności dokumentu
-parser\index{parser} ten umożliwia również konwersję danych do formatu
-ESIS\index{ESIS}, który wykorzystywany jest jako dane wejściowe przez
-wiele narzędzi do przetwarzania i~formatowania dokumentów SGML.
-Dodatkowymi, bardzo przydatnymi elementami pakietu \texttt{SP} są:
-program \texttt{sgmlnorm} do normalizacji, program \texttt{sx} służący
-do konwersji dokumentu SGML na XML oraz biblioteki programistyczne,
-przydatne przy tworzeniu specjalistycznych aplikacji służących do
-przetwarzania dokumentów SGML.
 
-W~przypadku dokumentów XML publicznie dostępnych, parserów jest
-w~chwili obecnej kilkadziesiąt. Do popularniejszych zaliczyć można
-Microsoft Java XML Parser firmy Microsoft, LT XML firmy Language
-Technology Group, Exapt oraz XP (James Clark)
+\chapter{Projekt aplikacji i analiza potrzeb}
+ 
+\section{Projekt interfejsu użytkownika}
+\section{Wymagania funkcjonalne}
+\section{Wymagania niefunkcjonalne}
+\section{Organiacja danych}
 
-\section{Wykorzystanie języków skryptowych}
+\chapter{Opis wybranych technologii i rozwiązań}
 
-\section{Wykorzystanie szablonów XSL}
+\section{GameMaker Studio}
 
-Stosując wersję XML typu DocBook można wykorzystać szablony stylów
-przygotowane w~standardzie XSL (autor N.~Walsh). W~chwili obecnej
-są dostępne narzędzia umożliwiające przetworzenie dokumentów XML do
-postaci drukowanej (Adobe PDF) oraz hipertekstowej (HTML).
+\chapter{Szczegóły implementacji}
+ 
+\section{Serwer danych}
+\section{Obsługa klienta}
 
-Podobnie jak w~przypadku szablonów DSSSL, szablony stylów XSL są
-sparametryzowane i~udokumentowane i~dzięki temu łatwe w~adaptacji. Do
-zamiany dokumentu XML na postać prezentacyjną można wykorzystać jeden
-z~dostępnych publicznie procesorów XSLT
-(por.~tabela~\ref{zest:proces:xslt}).
 
-\begin{table}[!htb]
-\begin{tabular}{|l|l|l|} \hline
-Nazwa & Autor      & Adres URL \\ \hline
-\texttt{sablotron} & Ginger Alliance & \url{http://www.gingerall.com} \\ \hline
-\texttt{Xt}        & J.~Clark & \url{http://www.jclark.com} \\ \hline
-\texttt{4XSLT}     & FourThought & \url{http://www.fourthought.com} \\ \hline
-\texttt{Saxon}     & Michael Kay &  \url{http://users.iclway.co.uk/mhkay/saxon} \\ \hline
-\texttt{Xalan}     & Apache XML Project & \url{http://xml.apache.org} \\ \hline
-\end{tabular}
-\caption{Publicznie dostępne procesory XLST\label{zest:proces:xslt}}
-\source{Opracowanie własne}
-\end{table}
-
-XSL:FO jest skomplikowanym językiem o~dużych możliwościach,
-zawierającym ponad 50 różnych ,,obiektów formatujących'', począwszy od
-najprostszych, takich jak prostokątne bloki tekstu poprzez wyliczenia,
-tabele i~odsyłacze. Obiekty te można formatować wykorzystując przeszło
-200 różnych właściwości (\emph{properties\/}), takich jak: kroje,
-odmiany i~wielkości pisma, odstępy, kolory itp.
-W~tym dokumencie przedstawione jest absolutne miniumum informacji
-na temat standardu XSL:FO.
-
-Cały dokument XSL:FO zawarty jest wewnątrz elementu \texttt{fo:root}.
-Element ten zawiera (w~podanej niżej kolejności):
-
-\begin{itemize}
-\item dokładnie jeden element \texttt{fo:layout-master-set} zawierający
-  szablony określające wygląd poszczególnych stron oraz sekwencji
-  stron (te ostatnie są opcjonalne, ale typowo są definiowane);
-\item zero lub więcej elementów \texttt{fo:declarations};
-\item jeden lub więcej elementów \texttt{fo:page-sequance}
- zawierających treść formatowanego dokumentu wraz z~opisem
- jego sformatowania i~podziału na strony.
-\end{itemize}
 
 % zakończenie
 \summary
-Możliwości, jakie stoją przed archiwum prac magisterskich opartych na
-XML-u, są ograniczone jedynie czasem, jaki należy poświęcić na pełną
-implementację systemu. Nie ma przeszkód technologicznych do stworzenia
-co najmniej równie doskonałego repozytorium, jak ma to miejsce w
-przypadku ETD. Jeżeli chcemy w pełni uczestniczyć w rozwoju nowej ery
-informacji, musimy szczególną uwagę przykładać do odpowiedniej
-klasyfikacji i archiwizacji danych. Sądzę, że język XML znacznie to
-upraszcza.
+
+PODSUMOWANIE TUTAJ
 
 % załączniki (opcjonalnie):
 \appendix

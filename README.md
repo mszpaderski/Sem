@@ -57,25 +57,36 @@ w niniejszej pracy, przedstawione będą zalety jej wykorzystania oraz szczegó�
 
 ## Spis treści
 
-1.  Wstęp
-2.  Założenia aplikacji
-3.  Projekt aplikacji i analiza potrzeb
-    1. Projekt interfejsu użytkownika
-    2. Wymagania funkcjonalne
-    3. Wymagania niefunkcjonalne
-    4. Organiacja danych
-4.  Opis wybranych technologii i rozwiązań
-5.  Szczegóły implementacji
-    1. Serwer danych
-    2. Obsługa klienta
-6.  Podsumowanie
+Wprowadzenie 
+1.  Założenia aplikacji
+        1.1. Zadania
+                1.1.1. Anagram
+                1.1.2. Narysuj
+                1.1.3. Zapałki
+                1.1.4. Matematyka
+                1.1.5. Ile to jest?
+                1.1.6. Znajdź słowo
+                1.1.7. Zakręć
+                1.1.8. Labirynt
+                1.1.9. Puzzle
+2.  Projekt aplikacji i analiza potrzeb
+        2.1. Projekt interfejsu użytkownika
+        2.2. Wymagania funkcjonalne
+        2.3. Wymagania niefunkcjonalne
+        2.4. Organiacja danych
+3.  Opis wybranych technologii i rozwiązań 
+        3.1. GameMaker Studio 
+4.  Szczegóły implementacji 
+        4.1. Serwer danych
+        4.2. Obsługa klienta
+5.  Zakończenie
 7.  Bibliografia
 8.  Spis tabel
 
 
 ## Bibliografia i linki
 
-1. [Bulma Zeigarnik, "On Finished and Unfinished Tasks"](http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf)
+1. [Bluma Zeigarnik, "On Finished and Unfinished Tasks"](http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf)
 
 **TODO: Rozwinąć bibliografię o dokumentacje **
 [1]Bluma W. Zeigarnik (09.11.1900 - 24.02.1988) - rosyjska psycholog i psychiatra.
