@@ -7,6 +7,8 @@ _font = argument[3];
 _shadow_size = argument[4];
 _shadow_colour = argument[5];
 _text_colour = argument[6];
+draw_set_halign(argument[7]);
+draw_set_valign(fa_top);
 draw_set_font(_font);
 draw_set_colour(_shadow_colour);
 draw_text((_x + _shadow_size), (_y + _shadow_size), string(_string));

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_draw_test_space();
+            <string>draw_set_color(c_green);
+draw_rectangle(100,500,980,1517,false);
+scr_draw_text_shadow(540, 800,"GRATULACJE!", font_Verdana_big, 6, c_black, c_ltgray, fa_center);
+
 </string>
           </argument>
         </arguments>

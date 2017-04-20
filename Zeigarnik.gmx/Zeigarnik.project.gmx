@@ -3,21 +3,38 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\GameMaker Server+(All)</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sp_button</sprite>
+    <sprites name="Invaders">
+      <sprite>sprites\spr_alien</sprite>
+      <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_tower</sprite>
+    </sprites>
+    <sprites name="Egg_Smasher">
+      <sprite>sprites\spr_egg</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_theme</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_direction.gml</script>
     <script>scripts\scr_draw_text_shadow.gml</script>
     <scripts name="Init">
+      <script>scripts\scr_make_times.gml</script>
       <script>scripts\scr_draw_test_space.gml</script>
       <script>scripts\scr_room_chosed.gml</script>
     </scripts>
+    <scripts name="Task_end">
+      <script>scripts\scr_end_time.gml</script>
+      <script>scripts\scr_end_win.gml</script>
+    </scripts>
+    <script>scripts\scr_flood_draw.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_Verdana</font>
@@ -25,9 +42,9 @@
   </fonts>
   <objects name="objects">
     <objects name="Menu">
-      <object>objects\obj_menu_anagrams</object>
-      <object>objects\obj_menu_draw_it</object>
-      <object>objects\obj_menu_labyrynth</object>
+      <object>objects\obj_menu_space_invaders</object>
+      <object>objects\obj_menu_egg_smasher</object>
+      <object>objects\obj_menu_flood_it</object>
       <object>objects\obj_menu_puzzle</object>
       <object>objects\obj_menu_spin</object>
       <object>objects\obj_menu_cross</object>
@@ -35,21 +52,43 @@
       <object>objects\obj_menu_matcher</object>
       <object>objects\obj_menu_math</object>
       <object>objects\obj_menu_initial</object>
+      <object>objects\obj_menu_start</object>
+      <object>objects\obj_menu_next</object>
     </objects>
-    <object>objects\obj_matches</object>
     <objects name="misc">
       <object>objects\obj_timer</object>
       <object>objects\obj_room_title</object>
       <object>objects\obj_test_space</object>
       <object>objects\obj_init</object>
+      <object>objects\obj_end_time</object>
+      <object>objects\obj_end_win</object>
+    </objects>
+    <objects name="Invaders">
+      <object>objects\obj_alien</object>
+      <object>objects\obj_tower</object>
+      <object>objects\obj_mov</object>
+      <object>objects\obj_bullet</object>
+    </objects>
+    <objects name="Egg_smasher">
+      <object>objects\obj_egg</object>
+    </objects>
+    <objects name="Flood_it">
+      <object>objects\obj_flood</object>
+      <object>objects\obj_button</object>
+    </objects>
+    <objects name="gms stuff">
+      <object>objects\GMS</object>
+      <object>objects\obj_login</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\r_init</room>
+    <room>rooms\r_login</room>
     <room>rooms\r_initial</room>
     <rooms name="tasks">
-      <room>rooms\r_anagrams</room>
-      <room>rooms\r_draw_it</room>
-      <room>rooms\r_matches</room>
+      <room>rooms\r_space_invaders</room>
+      <room>rooms\r_egg_smasher</room>
+      <room>rooms\r_flood_it</room>
       <room>rooms\r_math</room>
       <room>rooms\r_what_is_x</room>
       <room>rooms\r_cross</room>
