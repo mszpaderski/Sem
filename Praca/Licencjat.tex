@@ -219,13 +219,31 @@ gms_ini_player_write("test_made", room_name, false);
 
 
 
+
 \chapter{Szczegóły implementacji}
 W następującym rozdziale zajmę się sposobem implementacji poszczególnych pokoi. Głównie można podzielić wszystkie pokoje na pokoje inicjujące grę, w których należy się zalogować na serwer w celu przekazywania danych i ostrzeżeniu że cały test jest robiony na czas więc trzeba znaleźć wystarczająco czasu aby wykonać go w całości w jednym ciągu. Drugą kategorią pokoi są te w których znajdują się testy, każdy z nich ma zaimplementowaną w sobie inną grę. Oprogramowanie jest tak przystosowane żeby pokoje były od siebie niezależne, a wszystkie potrzebne wyniki zapisywały się bez potrzeby dopisywania dodatkowych skryptów. Tym samym dodanie nowego pokoju z grą wymaga jedynie wpisania go na listę startową oraz zaimplementowanie samej gry w tym pokoju. Trzecim i ostatnim rodzajem pokoju są pokoje końcowe, przeznaczone na ankietę po wykonaniu ostatniego zadania.
 
 \section{Inicjalizacja testu}
+Pierwsze trzy pokoje służą do zalogowania się do serwera dzięki czemu możliwy będzie zapis informacji o teście w pliku zdalnym. W trzecim pokoju znajduje się informacja o tym że czas na wykonanie każdego zadania będzie ograniczony, oraz przycisk rozpoczynający test. W momencie kliknięcia na ten przycisk, program losuje połowę pokoi zaokrągloną w dół i zmienia ich poziom trudności tak aby nie dało się ich ukończyć w czasie.
 
+\begin{lstlisting}[caption={Fragment skryptu scr\_make\_times}]
+for(i=0;i<floor(tasks/2);i++){
+    checked = false;
+    while(!checked){
+        x = floor(random_range(0,(tasks - 0.1)))
+        if(!global.worse[x]){
+            global.worse[x] = true;
+            checked = true;
+        }
+    }
+}
+\end{lstlisting}
+
+Za wylosowanie pokoi odpowiedzialny jest skrypt o nawie scr\_make\_times, którego fragment widzimy powyżej. Fragment ten pokazuje sposób w który wylosowywane są pokoje. Tablica worse jest globalną zmienną i posiada tyle miejsc ile jest zadań. Na każdym miejscu, dla konkretnego zadania, ma domyślnie wpisaną wartość false, która oznacza że gra nie jest utrudniona. Potem algorytm losuje pokój i zmienia wartość worse dla tego pokoju na true które powoduje utrudnienie zadania.
 
 \section{Pokoje z grami}
+Domyślnie każdy pokój ładuje się w ten sam sposób, tak jak było to zaprojektowane, posiada miejsce w którym pokazuje się gra. Na górze jest miejsce na tytuł zadania oraz wyjaśnienie zasad. Każdy z pokoi w którym są gry, ładuje się z zestawem zmiennych potrzebnych do działania gry. Zależnie od wcześniej wylosowanej wartości worse dla danego pokoju, wczytywane są inne wartości potrzebnych zmiennych.
+
 \subsection{Najeźdźcy z Kosmosu}
 \subsection{Rozbij jajko}
 \subsection{Powódź}
@@ -236,6 +254,7 @@ W następującym rozdziale zajmę się sposobem implementacji poszczególnych po
 \subsection{Super Pamięć}
 
 \section{Ankieta}
+
 
 
 
@@ -264,6 +283,8 @@ Treść załącznika dwa.
 
 % spis rysunków (jeżeli jest potrzebny):
 \listoffigures
+
+\lstlistoflistings 
 
 \oswiadczenie
 
