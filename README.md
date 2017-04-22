@@ -110,7 +110,7 @@ Wprowadzenie
 
 ## Bibliografia i linki
 
-1. [Bluma Zeigarnik, "On Finished and Unfinished Tasks"](http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf)
+1. [Bluma Zeigarnik, „On Finished and Unfinished Tasks”](http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf)
 
 **TODO: Rozwinąć bibliografię o dokumentacje **
 [1]Bluma W. Zeigarnik (09.11.1900 - 24.02.1988) - rosyjska psycholog i psychiatra.
