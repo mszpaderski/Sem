@@ -4,20 +4,17 @@
 
 ## Słowa kluczowe
 
-pamięć (uściślić), efekt Zeigarnik, aplikacje mobilne, środowisko programistyczne GameMaker
+pamięć ludzka, efekt Zeigarnik, aplikacje mobilne, środowisko programistyczne GameMaker, GameMaker Server
 
 ## Streszczenie
 
-W ramach pracy napisano aplikację na urządzenia mobilne ,,, (nazwa/tytuł).
-Aplikację napisano w ...
-
+W ramach pracy napisano aplikację na urządzenia mobilne o nazwie "Pułapka Zeigarnik".
 Do stworzenia aplikacji wykorzystane zostało środowisko do projektowania
 gier i programów komputerowych ”GameMaker: Studio”.
-Aplikacja napisano osiem testów, które użytkownik
+Napisano osiem testów, które użytkownik
 ma za zadanie rozwiązać w określonym czasie. 
 
-Wszystkie grafiki potrzebne do funkcjonowania aplikacji (uściślić) 
-zostały wykonane przeze mnie. W czym je napisano.
+Wszystkie grafiki potrzebne do funkcjonowania aplikacji zostały wykonane przeze mnie w programie . 
 
 
 
@@ -66,8 +63,7 @@ Wprowadzenie
 W pracy opisano aplikację, która ma na celu wspieranie badań nad
 Efektem Zeigarnik. (wstęp)
 
-W celu badania Efektu
-Zeigarnik, czas dany na rozwiązanie zadań jest różny. 
+W celu badania Efektu Zeigarnik, czas dany na rozwiązanie zadań jest różny. 
 
 Z założenia, przed rozpoczęciem
 testu aplikacja losuje połowę zadań i skraca ich czas tak aby nie
