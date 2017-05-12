@@ -1,0 +1,312 @@
+<constants>
+</constants>
+<styles>
+overlay:
+{
+}
+
+window:
+{
+	width: max;
+	height: min;
+
+	vertical-float: true;
+
+	open:
+	{
+		y-offset: 0;
+		tween-speed: 0.3;
+	}
+
+	close:
+	{
+		y-offset: 1;
+		tween-speed: 0.3;
+	}
+}
+
+contents:
+{
+	width: max;
+	height: max;
+	padding: 5;	
+	overlapping: true;
+}
+
+backgrounds:
+{
+	normal:
+	{
+		background-1: @c_background1;
+		background-2: @c_background1;
+		background-3: @c_background2;
+		background-4: @c_background2;
+	}
+
+	highlight:
+	{
+		background-1: @c_button1;
+		background-2: @c_button1;
+		background-3: @c_button2;
+		background-4: @c_button2;
+	}
+
+	hover:
+	{
+		background-1: @c_buttonhover1;
+		background-2: @c_buttonhover1;
+		background-3: @c_buttonhover2;
+		background-4: @c_buttonhover2;
+	}
+}
+
+border:
+{
+	border-size: 1;
+	border-color: @c_border;
+}
+
+keyrow:
+{
+	width: max;
+}
+
+keyboard:
+{
+	key:
+	{
+		width: max;
+		height: 52;
+		font: @f_title;
+		color: @c_text;
+		margin: 2;
+
+		background-1: @c_background1;
+		background-2: @c_background1;
+		background-3: @c_background2;
+		background-4: @c_background2;
+		tween-speed: 0.3;
+
+		hover:
+		{
+			background-1: @c_buttonhover1;
+			background-2: @c_buttonhover1;
+			background-3: @c_buttonhover2;
+			background-4: @c_buttonhover2;
+			tween-speed: 0.05;
+		}
+	}
+
+	x-offset: 0;
+	shiftleft:
+	{
+		x-offset: -1;
+		alpha: 0;
+		tween-speed: 0.5;
+	}
+
+	shift0:
+	{
+		x-offset: 0;
+		alpha: 1;
+		tween-speed: 0.5;
+	}
+
+	shiftright:
+	{
+		x-offset: 1;
+		alpha: 0;
+		tween-speed: 0.5;
+	}
+
+	normalkeys:
+	{
+		width: max;
+		height: max;
+		x-offset: 0;
+	}
+
+	numkeys:
+	{
+		width: max;
+		height: max;
+		x-offset: 1;
+		alpha: 0;
+	}
+
+	extrakeys:
+	{
+		width: max;
+		height: max;
+		x-offset: 1;
+		alpha: 0;
+		tween-affects-position: true;
+	}
+
+	close:
+	{
+		height: 52;
+		color: @c_text;
+		alpha: 0.5;
+		margin-right: 5;
+		arrow-size: 10;
+		arrow-length: 20;
+		width: max;
+		height: 52;
+
+		hover:
+		{
+			alpha: 1;
+			arrow-length: 40;
+			arrow-size: 20;
+		}
+
+		unhover:
+		{
+			alpha: 0.5;
+			arrow-length: 20;
+			arrow-size: 10;
+		}
+	}
+}
+
+</styles>
+<layout>
+	<canvas
+		name[overlay]
+		style[overlay]
+		open[overlay]
+		close[overlay]>
+		
+		<canvas
+			name[window]
+			style[window, window.close, backgrounds.highlight, border] 
+			open[window.open] 
+			close[window.close]>
+
+			<canvas 
+				style[contents]
+				name[contents]>
+
+				<container name[normal-keys] style[keyboard.normalkeys] extrawindow[keyboard.shiftleft] unextrawindow[keyboard.shift0]>
+					<multielement style[keyrow]>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>Q</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>W</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>E</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>R</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>T</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>Y</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>U</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>I</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>O</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>P</button>
+					</multielement>
+
+					<multielement style[keyrow]>
+						<button name[keyboard.numkey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>0..9</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>A</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>S</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>D</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>F</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>G</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>H</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>J</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>K</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>L</button>
+					</multielement>
+
+					<multielement style[keyrow]>
+						<button name[keyboard.shiftkey] style[keyboard.key] onspecial[keyboard.key.hover] onunspecial[keyboard.key]>Shift</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>Z</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>X</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>C</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>V</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>B</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>N</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>M</button>
+						<button name[keyboard.backspacekey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\<-</button>
+						<arrow name[keyboard.closekey] style[keyboard.key, keyboard.close] hover[keyboard.close.hover] unhover[keyboard.close.unhover] />
+					</multielement>
+                    
+                    <multielement style[keyrow]>
+						<button name[keyboard.shiftkey] style[keyboard.key] onspecial[keyboard.key.hover] onunspecial[keyboard.key]>Shift</button>
+                        <button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]> </button>
+						<button name[keyboard.backspacekey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\<-</button>
+						<arrow name[keyboard.closekey] style[keyboard.key, keyboard.close] hover[keyboard.close.hover] unhover[keyboard.close.unhover] />
+					</multielement>
+				</container>
+					
+				<container name[num-keys] style[keyboard.numkeys] extrawindow[keyboard.shift0] unextrawindow[keyboard.shiftright] onspecial[keyboard.shiftleft] onunspecial[keyboard.shift0]>
+					<multielement style[keyrow]>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>0</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>1</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>2</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>3</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>4</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>5</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>6</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>7</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>8</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>9</button>
+					</multielement>
+
+					<multielement style[keyrow]>
+						<button name[keyboard.normalkey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>a..z</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>-</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\/</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>:</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>;</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>(</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>)</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>$</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>&</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\@</button>
+					</multielement>
+
+					<multielement style[keyrow]>
+						<button name[keyboard.extrakey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\#+=</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>.</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\,</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>?</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>!</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>'</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>"</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>_</button>
+						<button name[keyboard.backspacekey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\<-</button>
+						<arrow name[keyboard.closekey] style[keyboard.key, keyboard.close] hover[keyboard.close.hover] unhover[keyboard.close.unhover] />
+					</multielement>
+				</container>
+					
+				<container name[extra-keys] style[keyboard.extrakeys] onspecial[keyboard.shift0] onunspecial[keyboard.shiftright]>
+					<multielement style[keyrow]>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\[</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\]</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>{</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>}</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>#</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>%</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>^</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>*</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>+</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>=</button>
+					</multielement>
+
+					<multielement style[keyrow]>
+						<button name[keyboard.numkey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>0..9</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\\</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>|</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>~</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\<</button>
+						<button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\></button>
+					</multielement>
+
+					<multielement style[keyrow]>
+						<button name[keyboard.backspacekey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]>\<-</button>
+						<arrow name[keyboard.closekey] style[keyboard.key, keyboard.close] hover[keyboard.close.hover] unhover[keyboard.close.unhover] />
+					</multielement>
+				</container>
+
+			</canvas>
+		</canvas>
+	</canvas>
+</layout>

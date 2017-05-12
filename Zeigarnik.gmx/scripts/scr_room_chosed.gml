@@ -3,8 +3,6 @@ var this_room_name = room_get_name(room);
 globalvar this_room_title;
 globalvar this_room_time;
 globalvar this_room_text;
-//var worse = false;
-var worse = true;
 
 switch(this_room_name){
     case "r_space_invaders":
@@ -44,35 +42,28 @@ switch(this_room_name){
             obj_flood.amount = 20;
         }
         break;
-    case "r_math":
-        global.this_room_title = "MATEMATYKA"
-        global.this_room_text = "Rozwiaz rownanie#Odpowiedz wpisz w pole pod rownaniem"
-        global.this_room_time = 20.0;
+    case "r_save_princess":
+        global.this_room_title = "Uratuj księżniczkę!"
+        global.this_room_text = "Przesuń palce w dół lub w górę aby unikać przeciwników,#biegnij prosto do księżniczki#zanim będzie za późno"
+        if(!global.worse[3]){//normal
+            obj_timer.room_time = 60.0;
+            obj_hero.running_speed_max = 8;
+            obj_hero.win_count = 20;
+        }else{//unfinished
+            obj_timer.room_time = 40.0;
+            obj_hero.running_speed_max = 15;
+            obj_hero.win_count = 50;
+        }
         break;
-    case "r_what_is_x":
-        global.this_room_title = "ILE TO JEST?"
-        global.this_room_text = "Czy jestes w stanie odgadnac ile wynosza te zmienne?#Wpisz ponizej swoje odpowiedzi"
-        global.this_room_time = 20.0;
-        break;
-    case "r_cross":
-        global.this_room_title = "ZNAJDZ SLOWO"
-        global.this_room_text = "Znajdz slowo: Kopytko#Nacisnij kolejne litery aby je zaznaczyc#Kliknij jeszcze raz aby odznaczyc#Odpowiedz moze znajdowac sie w pionie, poziomie lub po skosie"
-        global.this_room_time = 20.0;
-        break;
-    case "r_spin":
-        global.this_room_title = "ZAKREC"
-        global.this_room_text = "Odgadnij w ktora strone zakreci sie ostatnia zebatka#Pierwsza krecimy zgodnie ze wskazowkami zegara#Zaznacz prawidlowa odpowiedz"
-        global.this_room_time = 20.0;
-        break;
-    case "r_labyrynth":
-        global.this_room_title = "LABIRYNT"
-        global.this_room_text = "Przejdz labirynt#Uzywaj przyciskow ponizej aby sie poruszac"
-        global.this_room_time = 20.0;
-        break;
-    case "r_puzzle":
-        global.this_room_title = "PUZZLE"
-        global.this_room_text = "Spraw aby obrazek znow byl w calosci#Klikajac na element w pionie lub poziomie sasiadujacym#z pustym polem, przesowasz go na to puste pole"
-        global.this_room_time = 20.0;
+    case "r_unlock_it":
+        global.this_room_title = "Zator!"
+        global.this_room_text = "Przesuwaj bloki za pomocą palca.#Odblokuj drogę i przesuń zielony blok#na wyznaczone pole."
+        if(!global.worse[4]){//normal
+            obj_timer.room_time = 60.0;
+        }else{//unfinished
+            obj_timer.room_time = 40.0;
+            instance_create(608,928,obj_vertical_one);
+        }
         break;
 }
     

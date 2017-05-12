@@ -52,9 +52,14 @@
   </views>
   <instances>
     <instance objName="obj_init" x="128" y="288" name="inst_7CAB2382" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_initial" x="128" y="1888" name="inst_13EA1B06" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_timer" x="192" y="288" name="inst_3389E58A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flood" x="512" y="832" name="inst_A9924854" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_blue" x="224" y="1440" name="inst_D821101D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_fuchsia" x="352" y="1440" name="inst_015F2209" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_red" x="480" y="1440" name="inst_42849087" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_yellow" x="608" y="1440" name="inst_173086F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_aqua" x="736" y="1440" name="inst_2718B655" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_lime" x="864" y="1440" name="inst_BD58E8C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

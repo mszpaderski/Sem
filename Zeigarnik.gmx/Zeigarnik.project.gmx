@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions>
     <extension index="0">extensions\GameMaker Server+(All)</extension>
   </NewExtensions>
@@ -16,6 +17,32 @@
     </sprites>
     <sprites name="Egg_Smasher">
       <sprite>sprites\spr_egg</sprite>
+    </sprites>
+    <sprites name="Flood_it">
+      <sprite>sprites\spr_color_blue</sprite>
+      <sprite>sprites\spr_color_fuchsia</sprite>
+      <sprite>sprites\spr_color_red</sprite>
+      <sprite>sprites\spr_color_yellow</sprite>
+      <sprite>sprites\spr_color_aqua</sprite>
+      <sprite>sprites\spr_color_lime</sprite>
+    </sprites>
+    <sprites name="Save_princess">
+      <sprite>sprites\spr_hero_run</sprite>
+      <sprite>sprites\spr_hero_hit</sprite>
+      <sprite>sprites\spr_hero_idle</sprite>
+      <sprite>sprites\spr_orc_idle</sprite>
+      <sprite>sprites\spr_orc_die</sprite>
+      <sprite>sprites\spr_princess_end</sprite>
+    </sprites>
+    <sprites name="unlock it">
+      <sprite>sprites\spr_green_one</sprite>
+      <sprite>sprites\spr_horizontal_one</sprite>
+      <sprite>sprites\spr_vertical_one</sprite>
+      <sprite>sprites\sprite19</sprite>
+    </sprites>
+    <sprites name="Poll">
+      <sprite>sprites\spr_textbox_title</sprite>
+      <sprite>sprites\spr_textbox_descr</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -34,7 +61,14 @@
       <script>scripts\scr_end_time.gml</script>
       <script>scripts\scr_end_win.gml</script>
     </scripts>
-    <script>scripts\scr_flood_draw.gml</script>
+    <scripts name="flood_it">
+      <script>scripts\scr_flood_draw.gml</script>
+      <script>scripts\scr_recolor.gml</script>
+      <script>scripts\scr_retrue_colors.gml</script>
+    </scripts>
+    <scripts name="save_princess">
+      <script>scripts\scr_move_hero.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_Verdana</font>
@@ -45,23 +79,24 @@
       <object>objects\obj_menu_space_invaders</object>
       <object>objects\obj_menu_egg_smasher</object>
       <object>objects\obj_menu_flood_it</object>
-      <object>objects\obj_menu_puzzle</object>
+      <object>objects\obj_menu_save_princess</object>
+      <object>objects\obj_menu_unlock_it</object>
+      <object>objects\obj_menu_poll</object>
       <object>objects\obj_menu_spin</object>
       <object>objects\obj_menu_cross</object>
-      <object>objects\obj_menu_what_is_x</object>
       <object>objects\obj_menu_matcher</object>
-      <object>objects\obj_menu_math</object>
       <object>objects\obj_menu_initial</object>
       <object>objects\obj_menu_start</object>
       <object>objects\obj_menu_next</object>
+      <object>objects\obj_start_text</object>
     </objects>
     <objects name="misc">
       <object>objects\obj_timer</object>
-      <object>objects\obj_room_title</object>
       <object>objects\obj_test_space</object>
       <object>objects\obj_init</object>
       <object>objects\obj_end_time</object>
       <object>objects\obj_end_win</object>
+      <object>objects\obj_keyboard</object>
     </objects>
     <objects name="Invaders">
       <object>objects\obj_alien</object>
@@ -74,27 +109,59 @@
     </objects>
     <objects name="Flood_it">
       <object>objects\obj_flood</object>
-      <object>objects\obj_button</object>
+      <object>objects\obj_button_blue</object>
+      <object>objects\obj_button_fuchsia</object>
+      <object>objects\obj_button_red</object>
+      <object>objects\obj_button_yellow</object>
+      <object>objects\obj_button_aqua</object>
+      <object>objects\obj_button_lime</object>
+    </objects>
+    <objects name="save_princess">
+      <object>objects\obj_hero</object>
+      <object>objects\obj_orc</object>
+      <object>objects\obj_orc_die</object>
+      <object>objects\obj_mov_hero</object>
+      <object>objects\obj_princess_end</object>
     </objects>
     <objects name="gms stuff">
       <object>objects\GMS</object>
       <object>objects\obj_login</object>
+    </objects>
+    <objects name="unlock_it">
+      <object>objects\obj_green_one</object>
+      <object>objects\obj_vertical_one</object>
+      <object>objects\obj_horizontal_one</object>
+      <object>objects\obj_finish_block</object>
+    </objects>
+    <objects name="Poll">
+      <object>objects\obj_text</object>
+      <object>objects\obj_textbox_title</object>
+      <object>objects\obj_textbox_descr</object>
+      <object>objects\obj_button_next</object>
+      <object>objects\obj_button_end</object>
+      <object>objects\obj_poll_text</object>
+    </objects>
+    <objects name="End">
+      <object>objects\obj_end_text</object>
+      <object>objects\obj_end_button_timer</object>
+      <object>objects\obj_end_button</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\r_init</room>
     <room>rooms\r_login</room>
     <room>rooms\r_initial</room>
+    <room>rooms\r_initial_test</room>
     <rooms name="tasks">
       <room>rooms\r_space_invaders</room>
       <room>rooms\r_egg_smasher</room>
       <room>rooms\r_flood_it</room>
-      <room>rooms\r_math</room>
-      <room>rooms\r_what_is_x</room>
-      <room>rooms\r_cross</room>
-      <room>rooms\r_spin</room>
-      <room>rooms\r_labyrynth</room>
-      <room>rooms\r_puzzle</room>
+      <room>rooms\r_save_princess</room>
+      <room>rooms\r_unlock_it</room>
+    </rooms>
+    <rooms name="poll and end">
+      <room>rooms\r_poll</room>
+      <room>rooms\r_end</room>
     </rooms>
   </rooms>
   <help>

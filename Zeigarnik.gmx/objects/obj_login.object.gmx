@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gms_show_login()
+            <string>gms_show_keyboard();
+gms_show_login();
+
 </string>
           </argument>
         </arguments>

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-180</depth>
+  <depth>-80</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>var
 
 for(i=0;i&lt;amount;i++){
     for(n=0;n&lt;amount;n++){
@@ -34,6 +34,8 @@ for(i=0;i&lt;amount;i++){
     }
 }
 flood_flooded[0,0] = true;
+//Retrue start shape
+scr_retrue_colors(0,0,flood_color[0,0]);
 </string>
           </argument>
         </arguments>

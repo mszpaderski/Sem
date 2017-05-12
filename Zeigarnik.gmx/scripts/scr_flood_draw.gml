@@ -1,13 +1,13 @@
-///scr_flood_draw(widht_x, height_y, color);
+///scr_flood_draw(widht_x, height_y, color, size);
 //color = c_white;
-width_x = argument[0];
-height_y = argument[1];
-arg = argument[2];
-size = argument[3];
+var width_x = argument[0];
+var height_y = argument[1];
+var arg = argument[2];
+var size = argument[3];
 
 switch(arg){
     case 0: 
-        color_ = c_blue;
+        color = c_blue;
         break;
     case 1: 
         color = c_fuchsia;
