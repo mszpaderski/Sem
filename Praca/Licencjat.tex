@@ -39,24 +39,18 @@
 
 % streszczenie
 \begin{abstract}
-W pracy przedstawiono aplikację, która ma na celu wspieranie badań nad Efektem Zeigarnik. Aplikacja posiada serię prostych gier, które użytkownik ma za zadanie rozwiązać w określonym czasie. W celu badania Efektu Zeigarnik, czas dany na rozwiązanie zadań jest różny. Z założenia, przed rozpoczęciem testu aplikacja losuje połowę zadań i skraca ich czas tak aby nie dało się ich wykonać, lecz pozostawia wystarczająco czasu, aby zapoznać się z poleceniem. Potem użytkownik wypełnia ankietę, która pozwala ustalić, które z wykonanych zadań użytkownik jest w stanie sobie przypomnieć.
+W ramach pracy napisano aplikację na urządzenia mobilne o nazwie "Pułapka Zeigarnik". Do stworzenia aplikacji wykorzystane zostało środowisko do projektowania gier i programów komputerowych ”GameMaker: Studio”. Napisano osiem testów, które użytkownik ma za zadanie rozwiązać w określonym czasie.
 
-Do stworzenia aplikacji wykorzystane zostało środowisko do projektowania gier i programów komputerowych "GameMaker: Studio".  Wybrałem to oprogramowanie ze względu na chęć poszerzenia swojej wiedzy o umiejętność programowania w języku skryptowym GML. 
+Wszystkie grafiki potrzebne do funkcjonowania aplikacji zostały wykonane przeze mnie w programie Paint.NET .
 
-Wszystkie grafiki potrzebne do funkcjonowania aplikacji zostały wykonane przeze mnie.
+Aplikacja została wdrożona i umieszczona w repozytorium GitHub. Jest dostępna do pobrania ze strony: \url{ https://github.com/mszpaderski/Sem/tree/master/Pu\%C5\%82apka\%20Zeigarnik} .
 
-Wszystkie podstawowe założenia aplikacji zostały wykonane. Wykonana aplikacja jest przeznaczona na tablety. W przyszłości zostaną zaimplementowane nowe zadania.
 
 
 \end{abstract}
 
 % słowa kluczowe
-\keywords{GameMaker Studio,
- Zeigarnik,
- Aplikacja,
- Psychologia,
- pamięć,
-GML}
+\keywords{pamięć ludzka, efekt Zeigarnik, aplikacje mobilne, środowisko programistyczne GameMaker, GameMaker Server}
 
 % tytuł i spis treści
 \maketitle
@@ -245,10 +239,88 @@ Za wylosowanie pokoi odpowiedzialny jest skrypt o nawie scr\_make\_times, które
 Domyślnie każdy pokój ładuje się w ten sam sposób, tak jak było to zaprojektowane, posiada miejsce w którym pokazuje się gra. Na górze jest miejsce na tytuł zadania oraz wyjaśnienie zasad. Każdy z pokoi w którym są gry, ładuje się z zestawem zmiennych potrzebnych do działania gry. Zależnie od wcześniej wylosowanej wartości worse dla danego pokoju, wczytywane są inne wartości potrzebnych zmiennych.
 
 \subsection{Najeźdźcy z Kosmosu}
+W tej grze, gracz porusza wieżą obronną. Przeciwnicy poruszają się w określony sposób, sama wieża strzela automatycznie po określonym czasie. Najważniejszym aspektem tej gry jest sterowanie wieżą która może być poruszana na lewo i prawo.
+
+\begin{lstlisting}[caption={Skrypt scr\_direction}]
+if(point_direction(xstart,ystart,x,y) > 270 
+   or point_direction(xstart,ystart,x,y) < 90){
+    obj_tower.direction_s = 1;
+}
+
+if(point_direction(xstart,ystart,x,y) > 90 
+   and point_direction(xstart,ystart,x,y) < 270){
+    obj_tower.direction_s = 2;
+}
+\end{lstlisting}
+
+Gdy użytkownik przesunie palcem po ekranie, gra zapisuje współrzędne początku oraz końca ruchu. Potem porównuje te dwa punkty, sprawdzając pod jakim kątem znajdują się one od siebie. Następnie zależnie od kąta przesunięcia palca, wieża może zmienić swój kierunek. Powyżej zawarty skrypt ukazuje sprawdzenie kąta przesunięcia oraz wyboru w którą stronę powinna przemieszczać się wieża.
+
 \subsection{Rozbij jajko}
+Rozbicie jajka polega na stuknięciu w nie odpowiednią ilość razy.  Zawsze gdy otrzyma odpowiednią ilość uderzeń coraz bardziej pęka, zmieniając się wizualnie.
+
+\begin{lstlisting}[caption={Fragment  kodu obiektu obj\_egg}]
+if (current_hit == 0){
+    if(image_index &lt; 4){
+        image_index += 1;
+        current_hit = hit_count;
+    } else{
+        image_index += 1;
+        depth = -150
+        scr_end_win();
+    }
+}
+\end{lstlisting}
+
+Powyższy kod ukazuje sprawdzenie warunku zwycięstwa przy każdym kolejnym uderzeniu. Jeśli została spełniona ilość ciosów, należy dodać złamań. Jeśli użytkownik rozbije w końcu jajko, nastąpi ostatnia zmiana na obraz stłuczonego jajka oraz ekran końca gry.
+
+
 \subsection{Powódź}
+Ta gra składa się na używanie sześciu przycisków, które zmieniają kolor, dotychczas pochłoniętych kwadratów.  Po pokolorowaniu kwadratów które posiadają wartość "flood\_flooded\[i,n\] \= true", program sprawdza wszystkie przyległe pola(nie po skosie) w poszukiwaniu takiego samego koloru na jaki się pomalowało resztę. W przypadku kiedy znajdzie takie sam kolor, wchłania go zmieniając parametr flood\_flooded z false na true i rekurencyjnie sprawdza dla tego nowego kwadratu, czy on też nie znajduje się obok innych o tym samym kolorze, które nie zostały jeszcze pochłonięte.
+
+\begin{lstlisting}[caption={Fragment  skryptu scr\_retrue\_colors}]
+//checking up
+if(i-1 >= 0 && obj_flood.flood_color[i-1,n] == arg_color){
+    if(obj_flood.flood_flooded[i-1,n] != true){     
+        obj_flood.flood_flooded[i-1,n] = true;
+        scr_retrue_colors(i-1,n,arg_color);
+    }   
+}
+\end{lstlisting}
+
+Powyższy fragment ukazuje sprawdzenie czy nad aktualnie pochłoniętym kwadratem nie znajduje się taki o tym samym kolorze, analogicznie wyglądają sprawdzenia dla kwadratu pod spodem, jak i z prawej i lewej strony. Oczywiście nie sprawdzamy dalszą rekurencją tych kwadratów które zostały już pochłonięte.
+
+
 \subsection{Uratuj księżniczkę}
+W tej grze, gracz musi unikać spotkań z wrogiem aby jak najszybciej dostać się do księżniczki. Aby stworzyć iluzję nieskończonego poruszania się do przodu, to nie bohater się porusza lecz jego przeciwnicy. W przypadku znalezienia się na brzegu planszy, każdy przeciwnik zostaje zwrócony na drugi brzeg, wraz z losowym torem na którym się pojawia, tak jak demonstruje to poniższy kod.
+
+\begin{lstlisting}[caption={Fragment kodu obiektu obj\_orc}]
+if(x &lt; 120){
+    y = choose(750, 1000, 1250);
+    x = 960;
+    obj_hero.win_count -= 1;
+}
+\end{lstlisting}
+
+Jeśli bohater trafi na przeciwnika to przestaje na chwile biec aby go pokonać. Jeśli trafi na za dużą liczbę przeciwników, skończy mu się czas i nie zdąży dobiec do księżniczki.
+
 \subsection{Zator}
+Zator polega na odsunięciu z drogi wszystkich klocków które zasłaniają wyjście zielonemu blokowi. Problemem jest fakt że wszystkie klocki można przesuwać tylko wzdłuż ich dłuższej krawędzi. Zważając na założenia tej gry, najważniejszym jej aspektem jest sprawdzanie kolizji pomiędzy klockami i zapobieganie ewentualnemu nakładaniu się na siebie elementów. 
+
+\begin{lstlisting}[caption={Fragment kodu obiektu obj\_green\_one}]
+if(!(place_meeting(mouse_x + xx, y, obj_vertical_one)
+      or place_meeting(mouse_x + xx, y, obj_horizontal_one)) 
+      and (mouse_x+xx &lt;850 and mouse_x+xx &gt; 230)){
+        if(grab == false){
+            exit;
+        } else{
+            x = mouse_x + xx;
+        }    
+}
+\end{lstlisting}
+
+Jak widać na załączonym powyżej fragmencie obiektu zielonego bloku, w przypadku poruszenia jakimkolwiek blokiem, program wpierw sprawdza czy wykonany ruch nie spowoduje kolizji i dopiero po upewnieniu się że nic nie stoi na drodze, przesuwa blok tak jak było to zaplanowane.
+
+
 \subsection{Lodowy Labirynt}
 \subsection{Dziurawy labirynt}
 \subsection{Super Pamięć}
@@ -265,14 +337,14 @@ Domyślnie każdy pokój ładuje się w ten sam sposób, tak jak było to zaproj
 PODSUMOWANIE TUTAJ
 
 % załączniki (opcjonalnie):
-\appendix
-\chapter{Tytuł załącznika jeden}
+%\appendix
+%\chapter{Tytuł załącznika jeden}
 
-Treść załącznika jeden.
+%Treść załącznika jeden.
 
-\chapter{Tytuł załącznika dwa}
+%\chapter{Tytuł załącznika dwa}
 
-Treść załącznika dwa.
+%Treść załącznika dwa.
 
 % literatura (obowiązkowo):
 \bibliographystyle{unsrt}
