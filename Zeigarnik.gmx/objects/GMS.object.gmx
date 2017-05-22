@@ -28,6 +28,7 @@
             <string>gms_init(GMS)
 gms_settings(true, 1, -1, -1);
 room_goto_next();
+
 </string>
           </argument>
         </arguments>
@@ -120,6 +121,9 @@ room_goto_next();
           <argument>
             <kind>1</kind>
             <string>gms_draw()
+
+
+
 </string>
           </argument>
         </arguments>

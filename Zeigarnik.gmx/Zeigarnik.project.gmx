@@ -38,12 +38,19 @@
       <sprite>sprites\spr_green_one</sprite>
       <sprite>sprites\spr_horizontal_one</sprite>
       <sprite>sprites\spr_vertical_one</sprite>
-      <sprite>sprites\sprite19</sprite>
     </sprites>
     <sprites name="Poll">
       <sprite>sprites\spr_textbox_title</sprite>
       <sprite>sprites\spr_textbox_descr</sprite>
     </sprites>
+    <sprites name="Labyrynth">
+      <sprite>sprites\spr_lab_wall</sprite>
+      <sprite>sprites\spr_player_ice</sprite>
+      <sprite>sprites\spr_lab_exit</sprite>
+      <sprite>sprites\spr_lab_hole</sprite>
+      <sprite>sprites\spr_lab_ball</sprite>
+    </sprites>
+    <sprite>sprites\spr_memory</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_theme</background>
@@ -69,10 +76,19 @@
     <scripts name="save_princess">
       <script>scripts\scr_move_hero.gml</script>
     </scripts>
+    <scripts name="labyrynth">
+      <script>scripts\scr_ice_direction.gml</script>
+      <script>scripts\scr_hole_direction.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_Verdana</font>
     <font>fonts\font_Verdana_big</font>
+    <fonts name="GMS">
+      <font>fonts\Arial_Black</font>
+      <font>fonts\Verdana</font>
+      <font>fonts\Verdana_bold</font>
+    </fonts>
   </fonts>
   <objects name="objects">
     <objects name="Menu">
@@ -82,9 +98,9 @@
       <object>objects\obj_menu_save_princess</object>
       <object>objects\obj_menu_unlock_it</object>
       <object>objects\obj_menu_poll</object>
-      <object>objects\obj_menu_spin</object>
-      <object>objects\obj_menu_cross</object>
-      <object>objects\obj_menu_matcher</object>
+      <object>objects\obj_menu_lab_hole</object>
+      <object>objects\obj_menu_lab_ice</object>
+      <object>objects\obj_menu_memory</object>
       <object>objects\obj_menu_initial</object>
       <object>objects\obj_menu_start</object>
       <object>objects\obj_menu_next</object>
@@ -133,6 +149,11 @@
       <object>objects\obj_horizontal_one</object>
       <object>objects\obj_finish_block</object>
     </objects>
+    <objects name="End">
+      <object>objects\obj_end_text</object>
+      <object>objects\obj_end_button_timer</object>
+      <object>objects\obj_end_button</object>
+    </objects>
     <objects name="Poll">
       <object>objects\obj_text</object>
       <object>objects\obj_textbox_title</object>
@@ -141,10 +162,17 @@
       <object>objects\obj_button_end</object>
       <object>objects\obj_poll_text</object>
     </objects>
-    <objects name="End">
-      <object>objects\obj_end_text</object>
-      <object>objects\obj_end_button_timer</object>
-      <object>objects\obj_end_button</object>
+    <objects name="labyrynth">
+      <object>objects\obj_lab_wall</object>
+      <object>objects\obj_player_ice</object>
+      <object>objects\obj_lab_exit</object>
+      <object>objects\obj_mov_ice</object>
+      <object>objects\obj_player_ball</object>
+      <object>objects\obj_lab_hole</object>
+    </objects>
+    <objects name="Memory">
+      <object>objects\obj_memory_card</object>
+      <object>objects\obj_memory_shuffle</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -158,6 +186,9 @@
       <room>rooms\r_flood_it</room>
       <room>rooms\r_save_princess</room>
       <room>rooms\r_unlock_it</room>
+      <room>rooms\r_lab_ice</room>
+      <room>rooms\r_lab_hole</room>
+      <room>rooms\r_memory</room>
     </rooms>
     <rooms name="poll and end">
       <room>rooms\r_poll</room>

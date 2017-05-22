@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(r_initial);
+            <string>room_goto(r_initial_test);
 </string>
           </argument>
         </arguments>
@@ -54,7 +54,7 @@ draw_set_font(font_Verdana);
 draw_set_color(c_white);
 
 draw_self();
-draw_text(x, y, string("Initial"));
+draw_text(x, y, string("Initial_test"));
 </string>
           </argument>
         </arguments>

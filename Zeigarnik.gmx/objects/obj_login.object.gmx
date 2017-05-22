@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gms_show_keyboard();
+            <string>gms_show_set_fonts(Arial_Black, Verdana, Verdana_bold);
+
+
+gms_show_keyboard();
 gms_show_login();
 
 </string>

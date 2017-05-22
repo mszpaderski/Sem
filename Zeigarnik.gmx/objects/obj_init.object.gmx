@@ -73,10 +73,6 @@ scr_draw_test_space();
           <argument>
             <kind>1</kind>
             <string>///Draw title and text
-
-draw_set_halign(fa_middle);
-draw_set_valign(fa_middle);
-
 //Draw title
 
 scr_draw_text_shadow(540, 80, global.this_room_title, font_Verdana_big, 6, c_black, c_ltgray, fa_center);

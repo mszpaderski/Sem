@@ -31,6 +31,247 @@ blink = false;
 txt = "";
 alarm[0] = 30;
 can_click = true;
+
+gms_show_replace( wt_keyboard, "&lt;constants&gt;
+&lt;/constants&gt;
+&lt;styles&gt;
+overlay:
+{
+}
+
+window:
+{
+    width: max;
+    height: min;
+
+    vertical-float: true;
+    
+    	open:
+    	{
+        		y-offset: 0;
+        		tween-speed: 0.3;
+    	}
+    
+    	close:
+    	{
+        		y-offset: 1;
+        		tween-speed: 0.3;
+    	}
+}
+
+contents:
+{
+    width: max;
+    height: max;
+    padding: 5;
+    overlapping: true;
+}
+
+backgrounds:
+{
+    normal:
+    {
+        background-1: @c_background1;
+        background-2: @c_background1;
+        background-3: @c_background2;
+        background-4: @c_background2;
+    }
+
+    highlight:
+    {
+        background-1: @c_button1;
+        background-2: @c_button1;
+        background-3: @c_button2;
+        background-4: @c_button2;
+    }
+    
+    hover:
+    {
+        background-1: @c_buttonhover1;
+        background-2: @c_buttonhover1;
+        background-3: @c_buttonhover2;
+        background-4: @c_buttonhover2;
+    }
+}
+
+border:
+{
+    border-size: 1;
+    border-color: @c_border;
+}
+
+keyrow:
+{
+    width: max;
+}
+
+keyboard:
+{
+    key:
+    {
+        width: max;
+        height: 52;
+        font: @f_title;
+        color: @c_text;
+        margin: 2;
+        
+        background-1: @c_background1;
+        background-2: @c_background1;
+        background-3: @c_background2;
+        background-4: @c_background2;
+        tween-speed: 0.3;
+        
+        hover:
+        {
+            background-1: @c_buttonhover1;
+            background-2: @c_buttonhover1;
+            background-3: @c_buttonhover2;
+            background-4: @c_buttonhover2;
+            tween-speed: 0.05;
+        }
+    }
+    
+    x-offset: 0;
+    shiftleft:
+    {
+        x-offset: -1;
+        alpha: 0;
+        tween-speed: 0.5;
+    }
+    
+    shift0:
+    {
+        x-offset: 0;
+        alpha: 1;
+        tween-speed: 0.5;
+    }
+    
+    shiftright:
+    {
+        x-offset: 1;
+        alpha: 0;
+        tween-speed: 0.5;
+    }
+    
+    normalkeys:
+    {
+        width: max;
+        height: max;
+        x-offset: 0;
+    }
+    
+    numkeys:
+    {
+        width: max;
+        height: max;
+        x-offset: 1;
+        alpha: 0;
+    }
+    
+    extrakeys:
+    {
+        width: max;
+        height: max;
+        x-offset: 1;
+        alpha: 0;
+        tween-affects-position: true;
+    }
+    
+    close:
+    {
+        height: 52;
+        color: @c_text;
+        alpha: 0.5;
+        margin-right: 5;
+        arrow-size: 10;
+        arrow-length: 20;
+        width: max;
+        height: 52;
+        
+        hover:
+        {
+            alpha: 1;
+            arrow-length: 40;
+            arrow-size: 20;
+        }
+        
+        unhover:
+        {
+            alpha: 0.5;
+            arrow-length: 20;
+            arrow-size: 10;
+        }
+    }
+}
+
+&lt;/styles&gt;
+&lt;layout&gt;
+    &lt;canvas
+        name[overlay]
+        style[overlay]
+        open[overlay]
+        close[overlay]&gt;
+        
+        &lt;canvas
+            name[window]
+            style[window, window.close, backgrounds.highlight, border] 
+            open[window.open] 
+            close[window.close]&gt;
+            
+            &lt;canvas 
+                style[contents]
+                name[contents]&gt;
+                
+                &lt;container name[normal-keys] style[keyboard.normalkeys] extrawindow[keyboard.shiftleft] unextrawindow[keyboard.shift0]&gt;
+                    &lt;multielement style[keyrow]&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;Q&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;W&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;E&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;R&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;T&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;Y&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;U&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;I&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;O&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;P&lt;/button&gt;
+                    &lt;/multielement&gt;
+                    
+                    &lt;multielement style[keyrow]&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;A&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;S&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;D&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;F&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;G&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;H&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;J&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;K&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;L&lt;/button&gt;
+                    &lt;/multielement&gt;
+                    
+                    &lt;multielement style[keyrow]&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;Z&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;X&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;C&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;V&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;B&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;N&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;M&lt;/button&gt;
+                    &lt;/multielement&gt;
+                                        
+                    &lt;multielement style[keyrow]&gt;
+                        &lt;button name[keyboard.shiftkey] style[keyboard.key] onspecial[keyboard.key.hover] onunspecial[keyboard.key]&gt;Shift&lt;/button&gt;
+                        &lt;button name[keyboard.key] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;_&lt;/button&gt;
+                        &lt;button name[keyboard.backspacekey] style[keyboard.key] hover[keyboard.key.hover] unhover[keyboard.key]&gt;\&lt;-&lt;/button&gt;
+                    &lt;/multielement&gt;
+                &lt;/container&gt;
+                
+            &lt;/canvas&gt;
+        &lt;/canvas&gt;
+    &lt;/canvas&gt;
+&lt;/layout&gt;");
+
+
+
 gms_show_keyboard();
 </string>
           </argument>
@@ -86,6 +327,7 @@ alarm[0] = 30;
             <kind>1</kind>
             <string>if(selected == true){
     if(string_width(keyboard_string) &lt; max_width){
+        keyboard_string = string_replace(keyboard_string, '_', ' ');
         txt = keyboard_string;
     } else{
         keyboard_string = txt;

@@ -65,5 +65,45 @@ switch(this_room_name){
             instance_create(608,928,obj_vertical_one);
         }
         break;
+    case "r_lab_ice":
+        global.this_room_title = "Lodowy Labirynt!"
+        global.this_room_text = "Przesuwaj palcem aby wybrać kierunek poruszania się.#Uważaj jednak, gdy zaczniesz się poruszać,#zmienić kierunek możesz dopiero#po natrafieniu na ścianę"
+        if(!global.worse[5]){//normal
+            obj_timer.room_time = 60.0;
+            instance_create(224,1216,obj_lab_wall);
+            obj_player_ice.speed_ice = 7;
+        }else{//unfinished
+            obj_timer.room_time = 40.0;
+            obj_player_ice.speed_ice = 3;
+            
+        }
+        break;
+    case "r_lab_hole":
+        global.this_room_title = "Dziurawy Labirynt!"
+        global.this_room_text = "Przechylaj urządzenie aby sterować kulą.#Doprowadź ją do wyjścia.#Uważaj na dziury, jeśli w jakąś wpadniesz,#zaczniesz od nowa!"
+        if(!global.worse[6]){//normal
+            obj_timer.room_time = 60.0;
+        }else{//unfinished
+            obj_timer.room_time = 40.0;
+            instance_create(288,1024,obj_lab_wall);
+            instance_create(544,1024,obj_lab_wall);
+            instance_create(672,1344,obj_lab_wall);
+            
+        }
+        break;
+    case "r_memory":
+        global.this_room_title = "Super Pamięć!"
+        global.this_room_text = "Kliknij na kartę aby ją odkryć.#Dopasuj karty z takimi samymi obrazkami.#Znajdź wszystkie pary!"
+        if(!global.worse[6]){//normal
+            obj_timer.room_time = 60.0;
+            obj_memory_shuffle.delay_time = 10;
+        }else{//unfinished
+            obj_timer.room_time = 40.0;
+            obj_memory_shuffle.delay_time = 40;
+
+            
+        }
+        break;
+    
 }
     

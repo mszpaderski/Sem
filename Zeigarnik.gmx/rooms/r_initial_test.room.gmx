@@ -53,11 +53,11 @@
   <instances>
     <instance objName="obj_menu_space_invaders" x="320" y="256" name="inst_E3B7075D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_egg_smasher" x="320" y="384" name="inst_20BEE05B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_matcher" x="320" y="1152" name="inst_777FCC3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_memory" x="320" y="1152" name="inst_777FCC3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_save_princess" x="320" y="640" name="inst_048906ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_unlock_it" x="320" y="768" name="inst_9CB3D478" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_cross" x="320" y="896" name="inst_E2EBC699" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_spin" x="320" y="1024" name="inst_5BE7A258" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_lab_ice" x="320" y="896" name="inst_E2EBC699" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_lab_hole" x="320" y="1024" name="inst_5BE7A258" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_flood_it" x="320" y="512" name="inst_E2DC9B1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_poll" x="320" y="1280" name="inst_13C90C7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_start" x="768" y="160" name="inst_990CE120" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

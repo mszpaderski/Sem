@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>draw_set_color(c_green);
 draw_rectangle(100,500,980,1517,false);
-scr_draw_text_shadow(540, 800,"GRATULACJE!", font_Verdana_big, 6, c_black, c_ltgray, fa_center);
+scr_draw_text_shadow(540, 800,"GRATULACJE!", font_Verdana_big, 6, c_black, c_ltgray, fa_right);
 
 </string>
           </argument>

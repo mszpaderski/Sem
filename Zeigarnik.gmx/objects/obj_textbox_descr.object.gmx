@@ -86,6 +86,7 @@ alarm[0] = 30;
             <kind>1</kind>
             <string>if(selected == true){
     if(string_width(keyboard_string) &lt; max_width){
+        keyboard_string = string_replace(keyboard_string, '_', ' ');
         txt = keyboard_string;
     } else{
         keyboard_string = txt;
