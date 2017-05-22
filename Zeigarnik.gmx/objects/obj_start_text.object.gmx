@@ -56,7 +56,7 @@ draw_set_valign(fa_middle);
 
 //Draw title
 
-scr_draw_text_shadow(540, 100, end_title, font_Verdana_big, 6, c_black, c_ltgray, fa_center);
+scr_draw_text_shadow(540, 100, end_title, font_Verdana_big, 6, c_black, c_ltgray, fa_right);
 
 //Draw text
 scr_draw_text_shadow(540, 300, end_text, font_Verdana, 3, c_black, c_ltgray, fa_center);

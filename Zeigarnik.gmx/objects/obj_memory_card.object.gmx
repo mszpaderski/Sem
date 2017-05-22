@@ -137,13 +137,13 @@ obj_memory_shuffle.now_shown_id = 0;
             <kind>1</kind>
             <string>///turn the card
 if(turned == false &amp;&amp; obj_memory_shuffle.now_turned &lt; 2){
-    image_index = obj_memory_shuffle.card_deck[| id-100301];
+    image_index = obj_memory_shuffle.card_deck[| id_fac];
     obj_memory_shuffle.now_turned += 1;
     if(obj_memory_shuffle.now_turned == 1){
-        obj_memory_shuffle.now_shown = obj_memory_shuffle.card_deck[| id-100301];
+        obj_memory_shuffle.now_shown = obj_memory_shuffle.card_deck[| id_fac];
         obj_memory_shuffle.now_shown_id = id;
     } else if(obj_memory_shuffle.now_turned == 2){
-        if(obj_memory_shuffle.now_shown == obj_memory_shuffle.card_deck[| id-100301]){
+        if(obj_memory_shuffle.now_shown == obj_memory_shuffle.card_deck[| id_fac]){
             alarm[0] = obj_memory_shuffle.delay_time;
         }else{
             alarm[1] = obj_memory_shuffle.delay_time;
