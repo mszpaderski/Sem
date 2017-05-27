@@ -7,6 +7,56 @@
 \usepackage{listings}
 \usepackage{float}
 
+% Define Colors
+\usepackage{color}
+\definecolor{eclipseBlue}{RGB}{42,0.0,255}
+\definecolor{eclipseGreen}{RGB}{63,127,95}
+\definecolor{eclipsePurple}{RGB}{127,0,85}
+\definecolor{eclipseGreem}{RGB}{0,66,0}
+\definecolor{eclipseRed}{RGB}{127,20,20}
+
+% Define Language
+\lstdefinelanguage{GML}
+{
+  % list of keywords
+  morekeywords=[1]{
+    if, else,
+    while, exit,
+    for
+  },
+morekeywords=[2]{room_name, room, checked, tasks, i, worse, x, point_direction, direction_s, y, current_hit, hit_count, flood_color, arg_color, n, flood_flooded, win_count, grab, xx, yy, speed_ice, now_turned, now_shown, card_deck, id_fac, delay_time, now_shown_id},
+morekeywords=[3]{global, true, false, room_get_name, gms_ini_player_write, floor, random_range, xstart, ystart, image_index, depth, choose, place_meeting, mouse_x, mouse_y, device_get_tilt_x, id, alarm,  },
+  sensitive=false, % keywords are not case-sensitive
+  morecomment=[l]{//}, % l is for line comment
+  morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+  morestring=[b]" % defines that strings are enclosed in double quotes
+}
+ 
+% Set Language
+\lstset{
+  language={GML},
+  basicstyle=\small\ttfamily, % Global Code Style
+  captionpos=b, % Position of the Caption (t for top, b for bottom)
+  extendedchars=true, % Allows 256 instead of 128 ASCII characters
+  tabsize=2, % number of spaces indented when discovering a tab 
+  columns=fixed, % make all characters equal width
+  keepspaces=true, % does not ignore spaces to fit width, convert tabs to spaces
+  showstringspaces=false, % lets spaces in strings appear as real spaces
+  breaklines=true, % wrap lines if they don't fit
+  frame=trbl, % draw a frame at the top, right, left and bottom of the listing
+  frameround=tttt, % make the frame round at all four corners
+  framesep=4pt, % quarter circle size of the round corners
+  numbers=left, % show line numbers at the left
+  numberstyle=\tiny\ttfamily, % style of the line numbers
+  commentstyle=\color{eclipseGreen}, % style of comments
+  keywordstyle=[1]\color{eclipsePurple}, % style of keywords
+  keywordstyle=[2]\color{eclipseGreem}, % style of keywords
+  keywordstyle=[3]\color{eclipseRed}, % style of keywords
+  stringstyle=\color{eclipseBlue}, % style of strings
+}
+
+
+
 %\defaultfontfeatures{Scale=MatchLowercase}
 %\setmainfont[Numbers=OldStyle,Ligatures=TeX]{Minion Pro}
 %\setsansfont[Numbers=OldStyle,Ligatures=TeX]{Myriad Pro}
@@ -45,6 +95,9 @@ Wszystkie grafiki potrzebne do funkcjonowania aplikacji zostały wykonane przeze
 
 Aplikacja została wdrożona i umieszczona w repozytorium GitHub. Jest dostępna do pobrania ze strony: \url{ https://github.com/mszpaderski/Sem/tree/master/Pu\%C5\%82apka\%20Zeigarnik} .
 
+Dla ułatwienia dostępu do aplikacji przygotowałem wersję testową, możliwą do zainstalowania na urządzeniu z systemem Android jak i Windows. Wersja na system Windows może nie działać prawidłowo ze względu na nieprzystosowane sterowanie. W pliku README.md znajdują się wymagane do instalacji informację. \url{ https://github.com/mszpaderski/Sem/tree/master/Pu\%C5\%82apka\%20Zeigarnik/Test_Version} .
+
+
 
 
 \end{abstract}
@@ -60,11 +113,11 @@ Aplikacja została wdrożona i umieszczona w repozytorium GitHub. Jest dostępna
 
 Zamiar niekoniecznie oznacza z góry określoną okazję do jego zrealizowania, lecz potrzebę lub tymczasową potrzebę, która stwarza taką okazję. Bulma Zeigarnik długo zastanawiała się nad tym stwierdzeniem, próbując zbadać jak wywołać u człowieka tę chwilową potrzebę, która wpływa na naszą pamięć. Celem niniejszej pracy jest stworzenie aplikacji, która będzie pełnić funkcję pomocniczą przy przeprowadzaniu badań nad tym, co dziś nazywamy Efektem Zeigarnik.
 
-Efekt Zeigarnik został nazwany i opisany przez Blumę W. Zeigarnik\footnote{Bluma W. Zeigarnik (09.11.1900 - 24.02.1988) - rosyjska psycholog i psychiatra.} w 1927 roku. Opisuje on pojęcie psychologiczne związane z zagadnieniami pamięci i motywacji psychologii ogólnej. Efekt ten wykazuje, że czynności, które zostały nam przerwane jesteśmy w stanie lepiej sobie przypomnieć po pewnym czasie niż te, które wykonaliśmy bez żadnych problemów. Przykładem Efektu Zeigarnik są kelnerki w restauracjach, które jednocześnie pamiętają zamówienia nawet paru obsługiwanych w danym momencie osób, lecz gorzej przypominają sobie zamówienia klientów, którzy opuścili już lokal. Pomysł na aplikację, która pomaga badać ten efekt pojawił się podczas rozmowy ze znajomym, który ukończył studia na kierunku psychologia.
+Efekt Zeigarnik został nazwany i opisany przez Blumę W. Zeigarnik\footnote{Bluma W. Zeigarnik (09.11.1900 - 24.02.1988) - rosyjska psycholog i psychiatra.} w 1927 roku. Opisuje on pojęcie psychologiczne związane z zagadnieniami pamięci i motywacji psychologii ogólnej. Efekt ten wykazuje, że czynności, które zostały nam przerwane jesteśmy w stanie lepiej sobie przypomnieć po pewnym czasie niż te, które wykonaliśmy bez żadnych problemów. Przykładem Efektu Zeigarnik są kelnerki w restauracjach, które jednocześnie pamiętają zamówienia nawet paru obsługiwanych w danym momencie osób, lecz gorzej przypominają sobie zamówienia klientów, którzy opuścili już lokal. Pomysł na aplikację, która pomaga badać ten efekt pojawił się podczas rozmowy ze znajomym Bartoszem Tomkiewiczem, który ukończył studia magisterskie na kierunku psychologia i który postanowił pomóc mi z przygotowaniem zadań oraz testów które będą nadawać się do badania efektu Zeigarnik. Analiza wyników też jest robiona z jego pomocą.
 
 W części teoretycznej zostaną opisane główne założenia przyjęte podczas projektowania aplikacji. Przedstawione będą sposoby rozwiązania konkretnych problemów związanych z założeniami oraz możliwości aplikacji w zakresie przetwarzania informacji dostarczanych przez użytkowników.
 
-Projekt będzie wykonany na zasadzie aplikacji działającej w trybie klient-serwer. Aplikacja zostanie zaprojektowana i wykonana w środowisku The GameMaker: Studio, które wykorzystuje unikalny dla siebie język GML, składnią zbliżony do C++ lub Pascal. Wybrałem takie środowisko ze względu na chęć rozszerzenia swojej wiedzy w zakresie implementacji programów i gier w środowiskach do tego przystosowanych. Wymieniona technologia zostanie opisana w niniejszej pracy, przedstawione będą zalety jej wykorzystania oraz szczegóły implementacji.
+Projekt będzie wykonany na zasadzie aplikacji mobilnej. Aplikacja zostanie zaprojektowana i wykonana w środowisku The GameMaker: Studio, które wykorzystuje unikalny dla siebie język GML, składnią zbliżony do C++ lub Pascal. Wybrałem takie środowisko ze względu na chęć rozszerzenia swojej wiedzy w zakresie implementacji programów i gier w środowiskach do tego przystosowanych. Wymieniona technologia zostanie opisana w niniejszej pracy, przedstawione będą zalety jej wykorzystania oraz szczegóły implementacji.
 
 
 
@@ -322,10 +375,56 @@ Jak widać na załączonym powyżej fragmencie obiektu zielonego bloku, w przypa
 
 
 \subsection{Lodowy Labirynt}
+Założeniem Lodowego Labiryntu jest to że gdy zaczniemy się poruszać, nie możemy zmienić kierunku dopóki nie zatrzymamy sie na ścianie. Tym samym aplikacja została zaprogramowana tak aby sprawdzić w którą stronę przesunęliśmy palcem, co wyznacza kierunek ruchu. W momencie rozpoczęcia ruchu, blokujemy skrypt odpowiedzialny za wybieranie kierunku.
+
+\begin{lstlisting}[caption={Fragment kodu obiektu obj\_player\_ice}]
+    if(place_meeting(x-speed_ice, y, obj_lab_wall)){
+        while(!place_meeting(x-1, y, obj_lab_wall)){
+            x -= 1;
+        }
+\end{lstlisting}
+
+W przytoczonym fragmencie widzimy jak co klatkę jest sprawdzane położenie obiektu i czy nie styka się już ze ścianą. Jest to fragment sprawdzający kolizję w przypadku ruchu w lewo. Dla każdego kierunku kod ten różni się ze względu na inne położenie na osiach.
+
+
 \subsection{Dziurawy labirynt}
+W przeciwieństwie do innych zadań, w tym nie sterujemy za pomocą ruchu palca lecz za pomocą przechylania urządzenia. Program na bieżąco bada czy i która oś jest przekręcona i dostosowuje do tego ruch kulą. W przypadku wpadnięcia w dziurę poziom sie resetuje. 
+
+\begin{lstlisting}[caption={Fragment kodu obiektu obj\_player\_ball}]
+if(place_meeting(x+xx, y, obj_lab_wall)){
+    while(!place_meeting(x-device_get_tilt_x(), y, obj_lab_wall)){
+        x += -device_get_tilt_x();
+    }
+}else{
+    x += xx;
+}
+\end{lstlisting}
+
+ Takie zachowanie wymagało innego algorytmu kolizji ponieważ ważnym było aby kula przesuwała się po krawędzi w przypadku przechylenia urządzania w jej stronę. Tak jak to pokazuje powyższy przykład dla osi X. 
+
+
 \subsection{Super Pamięć}
+Na koniec przewidziana jest gra w super pamięć. Wykorzystane zostały grafiki z poprzednich zadań. Gdy gracz odkrywa pierwszą kartę, zapamiętane zostaje jaki obrazek odkrył. Gdy odkrywa drugą kartę, program sprawdza zgodność przedstawionego obrazu z poprzednim wybranym. Po tym sprawdzeniu decyduje się na jedną z dwóch akcji.
+
+\begin{lstlisting}[caption={Fragment kodu obiektu obj\_memory\_card}]
+    if(obj_memory_shuffle.now_turned == 1){
+        obj_memory_shuffle.now_shown = obj_memory_shuffle.card_deck[| id_fac];
+        obj_memory_shuffle.now_shown_id = id;
+    } else if(obj_memory_shuffle.now_turned == 2){
+        if(obj_memory_shuffle.now_shown == obj_memory_shuffle.card_deck[| id_fac]){
+            alarm[0] = obj_memory_shuffle.delay_time;
+        }else{
+            alarm[1] = obj_memory_shuffle.delay_time;
+        }
+    }
+\end{lstlisting}
+
+W przypadku kiedy rysunki się ze sobą zgadzają, wywoływany zostaje alarm który powoduje usunięcie obu instancji odkrytych kart. W drugim przypadku, gdy karty się ze sobą nie zgadzają, wywoływany jest alarm powodujący zakrycie kart z powrotem. Niezależnie od tego który alarm zostanie wywołany, informacje o ostatnio odkrytym zostają zresetowane.
+
 
 \section{Ankieta}
+Na potrzeby zakończenia badania, została zaimplementowana prosta ankieta w której użytkownik ma za zadanie wpisać tytuły oraz krótkie opisy zadań które wykonywał. Ankieta składa się na dwa pola tekstowe oraz możliwość wpisania kolejnego zadania lub zakończenia wpisywania zadań.  Tutaj nie ma żadnego limitu czasowego, użytkownik ma wpisać to co pamięta i jak to pamięta. Wszystkie te dane, jak i informację o tym które zadania zdołał ukończyć zapisują sie na serwerze, dla każdego użytkownika w osobnym folderze.
+
 
 
 
@@ -349,9 +448,21 @@ PODSUMOWANIE TUTAJ
 % literatura (obowiązkowo):
 \bibliographystyle{unsrt}
 \bibliography{xml}
+\begin{thebibliography}{9}
 
-% spis tabel (jeżeli jest potrzebny):
-\listoftables
+\bibitem{Zeigarnik}
+Bluma Zeigarnik, „On Finished and Unfinished Tasks”\\
+\textit{\url{http://codeblab.com/wp-content/uploads/2009/12/On-Finished-and-Unfinished-Tasks.pdf/}}
+
+\bibitem{GMS}
+GameMaker: Studio Dokumentacja”\\
+\textit{\url{https://docs.yoyogames.com//}}(Dostęp: 25.05.2017)
+
+\bibitem{GMServer}
+GameMaker Server Dokumentacja\\
+\textit{\url{http://gamemakerserver.com/en/docs//}}(Dostęp: 25.05.2017)
+
+\end{thebibliography}
 
 % spis rysunków (jeżeli jest potrzebny):
 \listoffigures
