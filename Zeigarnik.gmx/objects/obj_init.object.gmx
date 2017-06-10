@@ -75,7 +75,7 @@ scr_draw_test_space();
             <string>///Draw title and text
 //Draw title
 
-scr_draw_text_shadow(540, 80, global.this_room_title, font_Verdana_big, 6, c_black, c_ltgray, fa_right);
+scr_draw_text_shadow(540, 80, global.this_room_title, font_Verdana_big, 6, c_black, c_ltgray, fa_center);
 
 //Draw text
 scr_draw_text_shadow(540, 200, global.this_room_text, font_Verdana, 3, c_black, c_ltgray, fa_center);
